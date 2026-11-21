@@ -93,68 +93,28 @@
   };
 
   // ---------- recommendation logic ----------
-  function compute() {
-    let need = 0;
-    let cap = null;
-    let capLabel = "";
-    const votes = {};
-    const skip = new Set();
-    const notes = [];
-    const reasons = []; // answers that raised the minimum tier
-    const mustBy = []; // { text, tier } so we know what a budget cap sacrifices
-    for (const q of Q) {
-      const o = q.options.find((x) => x.id === answers[q.id]);
-      if (!o) continue;
-      const t = o.tier ? tierIdx(o.tier) : 0;
-      if (o.tier) {
-        need = Math.max(need, t);
-        reasons.push({ topic: q.short, label: o.label, tier: t });
-      }
-      if (o.budgetCap) {
-        cap = tierIdx(o.budgetCap);
-        capLabel = o.label;
-      }
-      for (const [f, v] of Object.entries(o.form || {})) votes[f] = (votes[f] || 0) + v;
-      (o.must || []).forEach((m) => mustBy.push({ text: m, tier: t }));
-      (o.skip || []).forEach((x) => skip.add(x));
-      if (o.note && !o.budgetCap) notes.push({ topic: q.short, text: o.note });
-    }
-    const capped = cap !== null && cap < need;
-    const tier = capped ? cap : need;
-    const must = [...new Set(mustBy.filter((m) => !capped || m.tier <= cap).map((m) => m.text))];
-    const compromises = capped ? [...new Set(mustBy.filter((m) => m.tier > cap).map((m) => m.text))] : [];
-    reasons.sort((a, b) => b.tier - a.tier);
-    const order = Object.keys(D.forms);
-    const form =
-      Object.entries(votes).sort((a, b) => b[1] - a[1] || order.indexOf(a[0]) - order.indexOf(b[0]))[0]?.[0] ||
-      "earbuds";
-    const n = answeredCount();
-    return {
-      n,
-      ready: n >= MIN_ANSWERS,
-      tier: D.tiers[tier],
-      needTier: D.tiers[need],
-      cap,
-      capLabel,
-      capped,
-      reasons,
-      compromises,
-      form,
-      must,
-      skip: [...skip],
-      notes,
-    };
-  }
+  const L = window.BYB_LOGIC(D, { minAnswers: MIN_ANSWERS });
+  const compute = () => L.compute(answers);
+  const picksFor = (tierId, form, needs) => L.picksFor(tierId, form, needs);
 
-  function picksFor(tierId, form) {
-    const same = D.picks.filter((p) => p.form === form);
-    const exact = same.filter((p) => p.tier === tierId);
-    if (exact.length) return { list: exact.slice(0, 3), exact: true };
-    const t = tierIdx(tierId);
-    return {
-      list: same.slice().sort((a, b) => Math.abs(tierIdx(a.tier) - t) - Math.abs(tierIdx(b.tier) - t)).slice(0, 3),
-      exact: false,
-    };
+  // ✓ / ✕ / ? chips for the buyer's must-haves
+  const MARK = { yes: "✓", no: "✕", unknown: "?" };
+  const STATE_WORD = { yes: "meets", no: "does not meet", unknown: "not confirmed:" };
+  function checkChips(checks) {
+    if (!checks || !checks.length) return null;
+    return h(
+      "span",
+      { class: "checks" },
+      checks.map((c) =>
+        h(
+          "span",
+          { class: "check " + c.state, title: c.label },
+          h("span", { class: "ck-mark", "aria-hidden": "true" }, MARK[c.state]),
+          h("span", { class: "visually-hidden" }, STATE_WORD[c.state] + " "),
+          c.label
+        )
+      )
+    );
   }
 
   function effectText(o) {
@@ -419,7 +379,7 @@
       kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "You can skip"), h("ul", { class: "ticks skip" }, r.skip.map((m) => h("li", { class: isFresh(m) }, m)))));
 
     if (r.ready) {
-      const p = picksFor(r.tier.id, r.form);
+      const p = picksFor(r.tier.id, r.form, r.needs);
       kids.push(
         h(
           "div",
@@ -566,6 +526,7 @@
       { class: "mini-pick", href: reviewLink(p.name), target: "_blank", rel: "noopener" },
       h("span", { class: "mp-name" }, p.name),
       h("span", { class: "mp-why" }, p.why),
+      checkChips(p.checks),
       h("span", { class: "mp-foot" }, h("span", { class: "mp-link" }, "Find reviews"), h("span", { class: "mp-date" }, pickDate(p)))
     );
   }
@@ -700,6 +661,12 @@
       .map((t) => ({ t, list: D.picks.filter((p) => p.tier === t.id && (pickFilter === "all" || p.form === pickFilter)) }))
       .filter((g) => g.list.length);
     const yours = last && last.ready ? last.tier.id : null;
+    const needs = last && last.ready ? last.needs : [];
+    groups.forEach((g) => {
+      g.list = g.list.map((p, i) => ({ ...p, checks: last && p.form === last.form ? L.matchPick(p, needs) : [], _i: i }));
+      const sc = (p) => p.checks.filter((c) => c.state === "no").length * 10 + p.checks.filter((c) => c.state === "unknown").length;
+      g.list.sort((a, b) => sc(a) - sc(b) || a._i - b._i);
+    });
     const kids = groups.map((g) =>
         h(
           "section",
@@ -736,6 +703,7 @@
                   h("span", { class: "pr-date" }, pickDate(p))
                 ),
                 h("p", { class: "pr-why" }, p.why),
+                checkChips(p.checks),
                 h("a", { class: "pr-link", href: reviewLink(p.name), target: "_blank", rel: "noopener" }, "Find reviews")
               )
             )
@@ -743,6 +711,7 @@
         )
     );
     if (!kids.length) kids.push(h("p", { class: "muted" }, "No picks of this type yet."));
+    if (needs.length) kids.push(h("p", { class: "facts-note" }, D.factsNote));
     document.getElementById("picks-list").replaceChildren(...kids);
   }
 

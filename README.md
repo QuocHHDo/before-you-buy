@@ -9,11 +9,13 @@ A static site with no build step: plain HTML, CSS and JS. Answers are saved in y
 ```
 index.html            page shell
 styles.css            all styling (light + dark mode)
-app.js                rendering + recommendation logic (category-agnostic)
+logic.js              pure recommendation + must-have matching (no DOM, unit tested)
+app.js                rendering (category-agnostic)
+tests/rules.test.js   example-buyer tests: node tests/rules.test.js
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
 ```
 
-To change the content, edit `data/headphones.js`. You shouldn't need to touch `app.js`.
+To change the content, edit `data/headphones.js`. Each pick can carry `facts` (`anc`, `ipx`, `multipoint`, `lowLatency`); leave a fact out when unconfirmed and the site shows "?" instead of guessing. You shouldn't need to touch `app.js`.
 
 ## Run locally
 

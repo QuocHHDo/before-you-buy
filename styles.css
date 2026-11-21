@@ -504,3 +504,18 @@ a { color: inherit; }
 .ticks li.fresh { animation: freshRow 1.8s ease-out; border-radius: 6px; }
 .meter.fresh .meter-stop.on { animation: freshMeter 0.6s ease-out; }
 .mobile-bar.fresh { animation: freshMeter 0.6s ease-out; }
+
+/* must-have checks on picks */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.checks { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: 13px; font-weight: 600; }
+.check { display: inline-flex; align-items: center; gap: 6px; }
+.ck-mark {
+  display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%;
+  font-size: 11px; font-weight: 800; line-height: 1; flex: none;
+}
+.check.yes .ck-mark { background: var(--must); color: var(--bg); }
+.check.no .ck-mark { background: var(--skip); color: var(--bg); }
+.check.unknown .ck-mark { border: 1.5px dashed currentColor; opacity: 0.75; }
+.check.no { text-decoration: line-through; text-decoration-thickness: 1px; opacity: 0.85; }
+.facts-note { margin: 4px 0 0; font-size: 14px; color: var(--muted); max-width: 62ch; }
+.mini-pick .checks { margin-top: 6px; }

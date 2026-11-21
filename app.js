@@ -166,21 +166,55 @@
   }
 
   // ---------- actions ----------
-  function choose(qid, oid) {
+  let recap = null; // { at, topic, label, text, back } shown on the screen after an auto-advance
+  let fresh = null; // { items: Set, tier: bool } one-shot highlight for the result panel
+
+  let lockUntil = 0; // swallow double-clicks/taps that land on the next question right after an auto-advance
+
+  function choose(qid, oid, fromKey = false) {
+    if (!fromKey && Date.now() < lockUntil) return;
+    const q = Q.find((x) => x.id === qid);
+    const wasAnswered = !!answers[qid];
+    const before = compute();
     if (answers[qid] === oid) delete answers[qid];
     else answers[qid] = oid;
     save();
     syncHash();
     fromLink = false;
     restorable = null;
+
+    const after = compute();
+    const had = new Set([...before.must, ...before.skip, ...before.compromises]);
+    fresh = {
+      items: new Set([...after.must, ...after.skip, ...after.compromises].filter((x) => !had.has(x))),
+      tier: before.ready !== after.ready || before.tier.id !== after.tier.id,
+    };
+
+    const o = q.options.find((x) => x.id === answers[qid]);
+    // Auto-advance only on a first answer. Changing an earlier answer stays put so you can compare.
+    if (o && !wasAnswered) {
+      const from = Q.indexOf(q);
+      const next = nextUnanswered(from + 1);
+      recap = { at: next, topic: q.short, label: o.label, text: effectText(o), back: from };
+      lockUntil = Date.now() + 400;
+      goTo(next);
+      return;
+    }
+    recap = null;
     renderDynamic();
     // keep focus on the chosen option after re-render
     const btn = document.querySelector('.opt[data-oid="' + oid + '"]');
     if (btn) btn.focus({ preventScroll: true });
   }
 
+  function nextUnanswered(from) {
+    for (let i = from; i < Q.length; i++) if (!answers[Q[i].id]) return i;
+    return Q.length;
+  }
+
   function goTo(i, focus = true) {
     step = Math.max(0, Math.min(Q.length, i));
+    if (recap && recap.at !== step) recap = null;
     renderDynamic();
     if (focus) {
       const head = document.getElementById("step-heading");
@@ -241,8 +275,23 @@
           )
       );
 
+    const recapEl =
+      recap &&
+      recap.at === step &&
+      h(
+        "div",
+        { class: "recap", role: "status" },
+        h(
+          "p",
+          { class: "recap-head" },
+          h("span", {}, "You answered “" + recap.label + "” for " + recap.topic + "."),
+          h("button", { type: "button", class: "link-btn", onclick: () => goTo(recap.back) }, "Change")
+        ),
+        h("p", { class: "recap-text" }, recap.text)
+      );
+
     if (step >= Q.length) {
-      root.replaceChildren(...[notice, segs, renderSummary()].filter(Boolean));
+      root.replaceChildren(...[notice, segs, recapEl, renderSummary()].filter(Boolean));
       return;
     }
 
@@ -253,6 +302,7 @@
     root.replaceChildren(
       ...[notice].filter(Boolean),
       segs,
+      ...[recapEl].filter(Boolean),
       h(
         "div",
         { class: "step" },
@@ -301,7 +351,7 @@
             isLast ? (sel ? "See my answers" : "Skip and finish") : sel ? "Next question" : "Skip this one"
           )
         ),
-        h("p", { class: "kbd-hint" }, "Tip: press 1–" + q.options.length + " to answer, Enter for next.")
+        h("p", { class: "kbd-hint" }, "Tip: press 1–" + q.options.length + " to answer.")
       )
     );
   }
@@ -364,9 +414,9 @@
     if (r.ready && r.capped) kids.push(budgetBlock(r));
 
     if (r.must.length)
-      kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "Must have"), h("ul", { class: "ticks must" }, r.must.map((m) => h("li", {}, m)))));
+      kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "Must have"), h("ul", { class: "ticks must" }, r.must.map((m) => h("li", { class: isFresh(m) }, m)))));
     if (r.skip.length)
-      kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "You can skip"), h("ul", { class: "ticks skip" }, r.skip.map((m) => h("li", {}, m)))));
+      kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "You can skip"), h("ul", { class: "ticks skip" }, r.skip.map((m) => h("li", { class: isFresh(m) }, m)))));
 
     if (r.ready) {
       const p = picksFor(r.tier.id, r.form);
@@ -428,7 +478,7 @@
         "Your answers point to " + r.needTier.name + " (" + r.needTier.range + "). At " + r.tier.name + " (" + r.tier.range + ") you'll likely give up:"
       ),
       r.compromises.length
-        ? h("ul", { class: "ticks skip" }, r.compromises.map((c) => h("li", {}, c)))
+        ? h("ul", { class: "ticks skip" }, r.compromises.map((c) => h("li", { class: isFresh(c) }, c)))
         : h("p", {}, r.tier.missing),
       h(
         "p",
@@ -473,11 +523,15 @@
     }, 3000);
   }
 
+  function isFresh(text) {
+    return fresh && fresh.items.has(text) ? "fresh" : false;
+  }
+
   function tierMeter(r) {
     const active = r.ready ? tierIdx(r.tier.id) : -1;
     return h(
       "div",
-      { class: "meter" + (r.ready ? "" : " pending") },
+      { class: "meter" + (r.ready ? "" : " pending") + (fresh && fresh.tier && r.ready ? " fresh" : "") },
       h(
         "div",
         { class: "meter-track", role: "img", "aria-label": r.ready ? "Your tier: " + r.tier.name + ", " + r.tier.range : "Tier not decided yet" },
@@ -685,6 +739,9 @@
     renderRail(r);
     renderLadder(r);
     renderMobileBar(r);
+    const bar = document.getElementById("mobile-bar");
+    bar.classList.toggle("fresh", !!(fresh && fresh.tier && r.ready));
+    fresh = null; // highlights play once per change
   }
 
   // keyboard: 1-9 choose, Enter / ArrowRight next, ArrowLeft back (only when focus is inside the stepper)
@@ -698,7 +755,7 @@
       const o = q.options[Number(e.key) - 1];
       if (o) {
         e.preventDefault();
-        choose(q.id, o.id);
+        choose(q.id, o.id, true);
       }
     } else if (e.key === "Enter" && document.activeElement && document.activeElement.classList.contains("opt")) {
       // Enter on an option selects it (default button behaviour) — then a second Enter moves on

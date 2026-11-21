@@ -9,18 +9,50 @@
 
   // ---------- state ----------
   let answers = load();
+  let restorable = null; // the visitor's own answers, if a shared link replaced them
+  let fromLink = false;
+  const shared = readHash();
+  if (shared) {
+    const differs = JSON.stringify(shared) !== JSON.stringify(answers);
+    if (differs && Object.keys(answers).length) restorable = answers;
+    answers = shared;
+    fromLink = differs;
+    save();
+  }
   let step = firstUnanswered();
   let pickFilter = "all";
 
+  // answers <-> URL hash, e.g. #budget=150&use=commute
+  function clean(a) {
+    const out = {};
+    for (const q of Q) if (a[q.id] && q.options.some((o) => o.id === a[q.id])) out[q.id] = a[q.id];
+    return out;
+  }
+  function readHash() {
+    const raw = location.hash.slice(1);
+    if (!raw.includes("=")) return null;
+    const a = clean(Object.fromEntries(new URLSearchParams(raw)));
+    return Object.keys(a).length ? a : null;
+  }
+  function encode(a) {
+    return new URLSearchParams(Q.filter((q) => a[q.id]).map((q) => [q.id, a[q.id]])).toString();
+  }
+  function shareUrl() {
+    return location.origin + location.pathname + (encode(answers) ? "#" + encode(answers) : "");
+  }
+  function syncHash() {
+    const enc = encode(answers);
+    try {
+      history.replaceState(null, "", location.pathname + location.search + (enc ? "#" + enc : ""));
+    } catch (e) {
+      /* file:// in some browsers */
+    }
+  }
+
   function load() {
     try {
-      const a = JSON.parse(localStorage.getItem(KEY)) || {};
       // drop answers to questions or options that no longer exist
-      for (const k of Object.keys(a)) {
-        const q = Q.find((x) => x.id === k);
-        if (!q || !q.options.some((o) => o.id === a[k])) delete a[k];
-      }
-      return a;
+      return clean(JSON.parse(localStorage.getItem(KEY)) || {});
     } catch (e) {
       return {};
     }
@@ -62,26 +94,56 @@
 
   // ---------- recommendation logic ----------
   function compute() {
-    let tier = 0;
+    let need = 0;
+    let cap = null;
+    let capLabel = "";
     const votes = {};
-    const must = new Set();
     const skip = new Set();
     const notes = [];
+    const reasons = []; // answers that raised the minimum tier
+    const mustBy = []; // { text, tier } so we know what a budget cap sacrifices
     for (const q of Q) {
       const o = q.options.find((x) => x.id === answers[q.id]);
       if (!o) continue;
-      if (o.tier) tier = Math.max(tier, tierIdx(o.tier));
+      const t = o.tier ? tierIdx(o.tier) : 0;
+      if (o.tier) {
+        need = Math.max(need, t);
+        reasons.push({ topic: q.short, label: o.label, tier: t });
+      }
+      if (o.budgetCap) {
+        cap = tierIdx(o.budgetCap);
+        capLabel = o.label;
+      }
       for (const [f, v] of Object.entries(o.form || {})) votes[f] = (votes[f] || 0) + v;
-      (o.must || []).forEach((m) => must.add(m));
-      (o.skip || []).forEach((s) => skip.add(s));
-      if (o.note) notes.push({ topic: q.short, text: o.note });
+      (o.must || []).forEach((m) => mustBy.push({ text: m, tier: t }));
+      (o.skip || []).forEach((x) => skip.add(x));
+      if (o.note && !o.budgetCap) notes.push({ topic: q.short, text: o.note });
     }
+    const capped = cap !== null && cap < need;
+    const tier = capped ? cap : need;
+    const must = [...new Set(mustBy.filter((m) => !capped || m.tier <= cap).map((m) => m.text))];
+    const compromises = capped ? [...new Set(mustBy.filter((m) => m.tier > cap).map((m) => m.text))] : [];
+    reasons.sort((a, b) => b.tier - a.tier);
     const order = Object.keys(D.forms);
     const form =
       Object.entries(votes).sort((a, b) => b[1] - a[1] || order.indexOf(a[0]) - order.indexOf(b[0]))[0]?.[0] ||
       "earbuds";
     const n = answeredCount();
-    return { n, ready: n >= MIN_ANSWERS, tier: D.tiers[tier], form, must: [...must], skip: [...skip], notes };
+    return {
+      n,
+      ready: n >= MIN_ANSWERS,
+      tier: D.tiers[tier],
+      needTier: D.tiers[need],
+      cap,
+      capLabel,
+      capped,
+      reasons,
+      compromises,
+      form,
+      must,
+      skip: [...skip],
+      notes,
+    };
   }
 
   function picksFor(tierId, form) {
@@ -108,6 +170,9 @@
     if (answers[qid] === oid) delete answers[qid];
     else answers[qid] = oid;
     save();
+    syncHash();
+    fromLink = false;
+    restorable = null;
     renderDynamic();
     // keep focus on the chosen option after re-render
     const btn = document.querySelector('.opt[data-oid="' + oid + '"]');
@@ -151,8 +216,33 @@
       )
     );
 
+    const notice =
+      fromLink &&
+      h(
+        "div",
+        { class: "shared-notice", role: "status" },
+        h("span", {}, "You're viewing answers from a shared link."),
+        restorable &&
+          h(
+            "button",
+            {
+              type: "button",
+              class: "link-btn",
+              onclick: () => {
+                answers = restorable;
+                restorable = null;
+                fromLink = false;
+                save();
+                syncHash();
+                goTo(firstUnanswered(), false);
+              },
+            },
+            "Go back to my own answers"
+          )
+      );
+
     if (step >= Q.length) {
-      root.replaceChildren(segs, renderSummary());
+      root.replaceChildren(...[notice, segs, renderSummary()].filter(Boolean));
       return;
     }
 
@@ -161,6 +251,7 @@
     const isLast = step === Q.length - 1;
 
     root.replaceChildren(
+      ...[notice].filter(Boolean),
       segs,
       h(
         "div",
@@ -269,6 +360,9 @@
       );
     }
 
+    if (r.ready) kids.push(whyBlock(r));
+    if (r.ready && r.capped) kids.push(budgetBlock(r));
+
     if (r.must.length)
       kids.push(h("div", { class: "rail-sec" }, h("h3", {}, "Must have"), h("ul", { class: "ticks must" }, r.must.map((m) => h("li", {}, m)))));
     if (r.skip.length)
@@ -296,7 +390,87 @@
         )
       );
 
+    if (r.n > 0) kids.push(shareBlock());
+
     rail.replaceChildren(...kids);
+  }
+
+  function whyBlock(r) {
+    const items = [];
+    if (r.capped) {
+      items.push(h("li", {}, h("b", {}, "Budget: "), r.capLabel + " caps you at " + D.tiers[r.cap].name + "."));
+    }
+    const top = r.reasons.filter((x) => x.tier > 0);
+    top.forEach((x) =>
+      items.push(h("li", {}, h("b", {}, x.topic + ": "), x.label + " needs at least " + D.tiers[x.tier].name + "."))
+    );
+    let lead;
+    if (!top.length) lead = "Nothing you said needs more than budget tier. Spending more would buy features you didn't ask for.";
+    else if (!r.capped && r.cap !== null && r.cap > tierIdx(r.tier.id))
+      lead = "Your budget goes up to " + D.tiers[r.cap].name + ", but your needs are covered for less.";
+    return h(
+      "div",
+      { class: "rail-sec why-tier" },
+      h("h3", {}, "Why " + r.tier.name),
+      lead && h("p", { class: "rail-text" }, lead),
+      items.length > 0 && h("ul", { class: "why-list" }, items)
+    );
+  }
+
+  function budgetBlock(r) {
+    return h(
+      "div",
+      { class: "budget-clash" },
+      h("h3", {}, "Your needs point higher than your budget"),
+      h(
+        "p",
+        {},
+        "Your answers point to " + r.needTier.name + " (" + r.needTier.range + "). At " + r.tier.name + " (" + r.tier.range + ") you'll likely give up:"
+      ),
+      r.compromises.length
+        ? h("ul", { class: "ticks skip" }, r.compromises.map((c) => h("li", {}, c)))
+        : h("p", {}, r.tier.missing),
+      h(
+        "p",
+        { class: "rail-text" },
+        "Tip: last year's flagship models often drop a tier when the new one comes out. Search for the previous generation on sale."
+      )
+    );
+  }
+
+  let shareMsg = "";
+  function shareBlock() {
+    const url = shareUrl();
+    return h(
+      "div",
+      { class: "rail-sec share" },
+      h("button", { type: "button", class: "btn btn-signal", onclick: shareResult }, "Share this result"),
+      h("p", { class: "rail-text share-msg", "aria-live": "polite" }, shareMsg || "Opens the same answers on any device."),
+      h("input", { class: "share-url", type: "text", readonly: true, value: url, "aria-label": "Link to this result", onfocus: (e) => e.target.select() })
+    );
+  }
+
+  async function shareResult() {
+    const url = shareUrl();
+    try {
+      if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+        await navigator.share({ title: "My headphone result: Before You Buy", url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      shareMsg = "Link copied. Paste it anywhere.";
+    } catch (e) {
+      if (e && e.name === "AbortError") return;
+      shareMsg = "Couldn't copy automatically. Copy the link below.";
+    }
+    renderRail(compute());
+    const input = document.querySelector(".share-url");
+    if (input && shareMsg.startsWith("Couldn't")) input.select();
+    setTimeout(() => {
+      shareMsg = "";
+      const m = document.querySelector(".share-msg");
+      if (m) m.textContent = "Opens the same answers on any device.";
+    }, 3000);
   }
 
   function tierMeter(r) {
@@ -308,10 +482,15 @@
         "div",
         { class: "meter-track", role: "img", "aria-label": r.ready ? "Your tier: " + r.tier.name + ", " + r.tier.range : "Tier not decided yet" },
         D.tiers.map((t, i) =>
-          h("span", { class: "meter-stop" + (i === active ? " on" : "") + (i < active ? " below" : "") }, h("span", { class: "meter-range" }, t.range))
+          h(
+            "span",
+            { class: "meter-stop" + (i === active ? " on" : "") + (r.ready && r.capped && i === tierIdx(r.needTier.id) ? " need" : "") },
+            h("span", { class: "meter-range" }, t.range)
+          )
         )
       ),
-      r.ready && h("p", { class: "meter-caption" }, h("b", {}, r.tier.name + " tier. "), r.tier.bestFor)
+      r.ready && h("p", { class: "meter-caption" }, h("b", {}, r.tier.name + " tier. "), r.tier.bestFor),
+      r.ready && r.capped && h("p", { class: "meter-legend" }, h("span", { class: "dash-swatch" }), "Where your needs point")
     );
   }
 
@@ -537,7 +716,10 @@
 
   document.getElementById("reset-btn").addEventListener("click", () => {
     answers = {};
+    restorable = null;
+    fromLink = false;
     save();
+    syncHash();
     goTo(0, false);
     document.getElementById("tool").scrollIntoView({ behavior: smooth(), block: "start" });
   });
@@ -547,6 +729,12 @@
   document.getElementById("page-tagline").textContent = D.tagline;
   document.getElementById("last-checked").textContent = "Content last checked " + D.lastChecked;
 
+  if (!shared && Object.keys(answers).length) syncHash();
+  // a different shared link pasted into this tab
+  window.addEventListener("hashchange", () => {
+    const a = readHash();
+    if (a && JSON.stringify(a) !== JSON.stringify(answers)) location.reload();
+  });
   renderBrand();
   renderTraps();
   renderPicks();

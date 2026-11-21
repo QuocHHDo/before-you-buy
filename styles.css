@@ -415,3 +415,37 @@ a { color: inherit; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- shared link, why-this-tier, budget clash, share ---------- */
+.shared-notice {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
+  background: var(--signal-soft); color: var(--ink); border-radius: var(--radius);
+  padding: 10px 14px; margin-bottom: 20px; font-size: 15px;
+}
+.shared-notice .link-btn { padding: 4px 0; }
+
+.rail-text { font-size: 14px; color: var(--rail-muted); margin: 0 0 8px; line-height: 1.5; }
+.why-list { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+.why-list li { padding: 4px 0 4px 14px; border-left: 3px solid var(--signal); margin-bottom: 6px; line-height: 1.45; }
+.why-list b { font-weight: 700; }
+
+.budget-clash {
+  margin-top: 20px; padding: 16px; border-radius: var(--radius);
+  border: 1.5px dashed var(--signal); font-size: 15px;
+}
+.budget-clash h3 { font-size: 16px; color: var(--signal); margin-bottom: 8px; }
+.budget-clash p { margin: 0 0 8px; }
+.budget-clash .ticks { margin-bottom: 10px; }
+
+.meter-stop.need { outline: 2px dashed var(--signal); outline-offset: -2px; }
+.meter-stop.need .meter-range { color: var(--bg); }
+.meter-legend { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--rail-muted); margin: 6px 0 0; }
+.dash-swatch { width: 18px; height: 12px; border-radius: 3px; outline: 2px dashed var(--signal); outline-offset: -2px; }
+
+.btn-signal { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); width: 100%; }
+.btn-signal:hover:not(:disabled) { border-color: var(--bg); }
+.share .share-msg { margin: 8px 0 6px; }
+.share-url {
+  width: 100%; font: inherit; font-size: 13px; padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--rail-line); background: transparent; color: var(--rail-muted);
+}

@@ -58,6 +58,22 @@ window.SITE_DATA = {
 
   questions: [
     {
+      id: "budget",
+      short: "Budget",
+      ask: "What's the most you want to spend?",
+      why: "Your needs and your budget don't always agree. Setting a ceiling lets the result tell you exactly what you'd give up, instead of quietly recommending something you won't buy.",
+      options: [
+        { id: "50", label: "Under $50", budgetCap: "budget",
+          note: "Sets your ceiling at budget tier. If your other answers need more, your result will list what you give up." },
+        { id: "150", label: "Up to $150", budgetCap: "mid",
+          note: "Sets your ceiling at mid tier, which covers most people's needs." },
+        { id: "300", label: "Up to $300", budgetCap: "upper",
+          note: "Sets your ceiling at upper tier. You may not need to spend all of it." },
+        { id: "any", label: "No hard limit",
+          note: "No ceiling. The result will still tell you the lowest tier that covers your needs." }
+      ]
+    },
+    {
       id: "use",
       short: "Use",
       ask: "Where will you mostly use them?",
@@ -200,27 +216,38 @@ window.SITE_DATA = {
 
   picksNote: "Well-reviewed models, sorted by typical street price. Prices move a lot — check the current price and recent reviews before buying.",
   picks: [
-    { name: "JLab Go Air Pop", tier: "budget", form: "earbuds", why: "Very cheap and light. Basic mic, no ANC — fine as a gym or backup pair." },
+    { name: "JLab Go Air Pop", tier: "budget", form: "earbuds", why: "Very cheap and light. Basic mic, no ANC. Fine as a gym or backup pair." },
     { name: "Soundcore P20i", tier: "budget", form: "earbuds", why: "Cheap and decent-sounding. No ANC." },
     { name: "Soundcore Life Q20", tier: "budget", form: "over-ear", why: "Budget over-ear with basic ANC. Bulky but comfortable for the price." },
+    { name: "Soundcore Q20i", tier: "budget", form: "over-ear", why: "Similar to the Life Q20 with an app for EQ. Basic ANC." },
     { name: "Moondrop Chu II", tier: "budget", form: "wired-iem", why: "Value-brand wired in-ear praised for sound far above its price." },
+    { name: "7Hz Salnotes Zero", tier: "budget", form: "wired-iem", why: "Another well-reviewed budget wired in-ear with a neutral tuning." },
+    { name: "HyperX Cloud Stinger 2", tier: "budget", form: "gaming", why: "Light wired gaming headset with a usable mic. Basic build." },
 
     { name: "Soundcore Space Q45", tier: "mid", form: "over-ear", why: "Strong ANC and multipoint for the price. A go-to value ANC pick." },
     { name: "Sony WH-CH720N", tier: "mid", form: "over-ear", why: "Light and comfortable with decent ANC from a big brand." },
     { name: "Soundcore Space A40", tier: "mid", form: "earbuds", why: "Good ANC earbuds without the flagship price." },
     { name: "CMF Buds Pro 2", tier: "mid", form: "earbuds", why: "Feature-packed value earbuds from Nothing's budget brand." },
     { name: "Truthear Zero:Red", tier: "mid", form: "wired-iem", why: "Well-tuned wired in-ear; a common best-sound-per-dollar pick." },
+    { name: "Moondrop Aria 2", tier: "mid", form: "wired-iem", why: "Step-up wired in-ear with a smooth, easy-listening tuning." },
+    { name: "Philips SHP9500", tier: "mid", form: "wired-over-ear", why: "Classic budget open-back. Very comfortable, airy sound, light on bass." },
+    { name: "Sennheiser HD 599", tier: "mid", form: "wired-over-ear", why: "Comfortable open-back from a big brand, often on sale in this range." },
     { name: "HyperX Cloud III", tier: "mid", form: "gaming", why: "Wired gaming headset: comfortable, solid mic, zero wireless lag." },
 
     { name: "Apple AirPods Pro 3", tier: "upper", form: "earbuds", why: "Best pick for iPhone users: strong ANC, great calls, Apple ecosystem perks." },
     { name: "Samsung Galaxy Buds4 Pro", tier: "upper", form: "earbuds", why: "The Samsung-phone counterpart to AirPods Pro." },
     { name: "Sennheiser Momentum 4 Wireless", tier: "upper", form: "over-ear", why: "Very long battery life and sound-first tuning. Often discounted." },
+    { name: "Sony WH-1000XM5", tier: "upper", form: "over-ear", why: "Last generation's flagship, now often discounted into this tier. Still excellent ANC." },
     { name: "Sennheiser HD 560S", tier: "upper", form: "wired-over-ear", why: "Open-back wired headphones for detailed sound at home. Leaks sound; no ANC." },
     { name: "SteelSeries Arctis Nova 7 Wireless", tier: "upper", form: "gaming", why: "2.4 GHz dongle plus Bluetooth at once. A popular wireless gaming pick." },
+    { name: "Logitech G PRO X 2 LIGHTSPEED", tier: "upper", form: "gaming", why: "Low-latency wireless gaming headset with long battery life." },
 
     { name: "Sony WH-1000XM6", tier: "premium", form: "over-ear", why: "Top-tier ANC and features." },
     { name: "Bose QuietComfort Ultra Headphones (2nd Gen)", tier: "premium", form: "over-ear", why: "Top-tier ANC with a famously comfortable fit." },
+    { name: "Bowers & Wilkins Px8 S2", tier: "premium", form: "over-ear", why: "Luxury materials and build. You're paying for design more than features." },
     { name: "Sony WF-1000XM6", tier: "premium", form: "earbuds", why: "Flagship ANC earbuds that work well on any phone." },
+    { name: "Technics EAH-AZ100", tier: "premium", form: "earbuds", why: "Flagship earbuds with strong sound and three-device multipoint." },
+    { name: "Sennheiser HD 600", tier: "premium", form: "wired-over-ear", why: "Long-running reference open-back. Benefits from a headphone amp." },
     { name: "Audeze Maxwell 2", tier: "premium", form: "gaming", why: "High-end wireless gaming headset known for its sound." }
   ]
 };

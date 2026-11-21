@@ -42,6 +42,13 @@ Each answer option in `data/headphones.js` can set:
 - `form`: votes for a form factor (earbuds, over-ear, wired IEM...). The most votes wins.
 - `must` / `skip`: lines added to the "Must have" and "You can skip" lists.
 - `note`: shown under the question and in "Worth knowing".
+- `budgetCap` (budget question only): the highest tier the person will pay for. If their needs point higher, the result drops to the cap and lists what they give up.
+
+The result panel also explains **why** it chose a tier, listing each answer that raised it.
+
+## Share links
+
+Answers are kept in the URL hash, e.g. `#budget=150&use=commute&calls=often`. "Share this result" copies that link (or opens the share sheet on phones). Opening a shared link loads those answers; if the visitor had their own saved answers, they get a button to go back to them.
 
 ## Adding a category later
 

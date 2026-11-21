@@ -557,7 +557,7 @@
     title.textContent = "What you get as price goes up";
     const desc = svg("desc", { id: "ladder-desc" });
     desc.textContent =
-      "A curve that rises steeply from budget to mid tier, then flattens through upper and premium. " +
+      "A curve that rises steeply from budget to mid tier, then flattens as price keeps rising. " +
       D.tiers.map((t) => t.name + " " + t.range).join(", ") + ".";
     s.append(title, desc);
 
@@ -577,8 +577,9 @@
     s.append(svg("path", { d, class: "curve" }));
 
     // annotate the flat part
-    const midX = (xs[2] + xs[3]) / 2;
-    const ann = svg("text", { x: midX, y: (Math.max(ys[2], ys[3]) + bottom) / 2 + 6, class: "ann", "text-anchor": "middle" });
+    const n = D.tiers.length, lo = Math.max(n - 2, 0), hi = n - 1;
+    const midX = (xs[lo] + xs[hi]) / 2;
+    const ann = svg("text", { x: midX, y: (Math.max(ys[lo], ys[hi]) + bottom) / 2 + 6, class: "ann", "text-anchor": "middle" });
     ann.textContent = "Mostly polish from here";
     s.append(ann);
 

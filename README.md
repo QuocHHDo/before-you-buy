@@ -1,6 +1,6 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Starting with headphones and electric toothbrushes.
+The questions you didn't know to ask before buying electronics. Covers headphones, electric toothbrushes, keyboards and mice.
 
 A static site with no build step: plain HTML, CSS and JS. Answers are saved in your browser (localStorage).
 
@@ -9,12 +9,16 @@ A static site with no build step: plain HTML, CSS and JS. Answers are saved in y
 ```
 index.html            headphones page
 toothbrush.html       electric toothbrush page (same shell, different data file)
+keyboard.html         keyboard page
+mouse.html            mouse page
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests: node tests/rules.test.js and node tests/toothbrush.test.js
+tests/*.test.js       example-buyer tests: node tests/rules.test.js, toothbrush.test.js, keyboard.test.js, mouse.test.js
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
 data/toothbrushes.js  same shape for toothbrushes
+data/keyboards.js     same shape for keyboards
+data/mice.js          same shape for mice
 ```
 
 To change the content, edit `data/headphones.js`. Each category declares `needDefs` (what a "must have" checks) and each pick can carry `facts` (e.g. `anc`, `ipx`, `multipoint`, `pressure`, `ada`); leave a fact out when unconfirmed and the site shows "?" instead of guessing. You shouldn't need to touch `app.js`.

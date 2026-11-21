@@ -699,12 +699,28 @@
     const groups = D.tiers
       .map((t) => ({ t, list: D.picks.filter((p) => p.tier === t.id && (pickFilter === "all" || p.form === pickFilter)) }))
       .filter((g) => g.list.length);
-    document.getElementById("picks-list").replaceChildren(
-      ...groups.map((g) =>
+    const yours = last && last.ready ? last.tier.id : null;
+    const kids = groups.map((g) =>
         h(
-          "div",
-          { class: "pick-group" },
-          h("h3", {}, g.t.name, h("span", { class: "tier-range" }, g.t.range)),
+          "section",
+          { class: "pick-group tier-" + g.t.id + (g.t.id === yours ? " yours" : ""), "aria-labelledby": "pg-" + g.t.id },
+          h(
+            "header",
+            { class: "pg-head" },
+            h(
+              "div",
+              { class: "pg-title" },
+              h("h3", { id: "pg-" + g.t.id }, g.t.name),
+              h("span", { class: "tier-range" }, g.t.range),
+              g.t.id === yours && h("span", { class: "pg-yours" }, "Your tier")
+            ),
+            h(
+              "div",
+              { class: "pg-meter", "aria-hidden": "true" },
+              D.tiers.map((_, i) => h("span", { class: i === tierIdx(g.t.id) ? "on" : false }))
+            ),
+            h("p", { class: "pg-sub" }, g.t.bestFor)
+          ),
           h(
             "ul",
             { class: "pick-rows" },
@@ -725,9 +741,9 @@
             )
           )
         )
-      ),
-      groups.length ? null : h("p", { class: "muted" }, "No picks of this type yet.")
     );
+    if (!kids.length) kids.push(h("p", { class: "muted" }, "No picks of this type yet."));
+    document.getElementById("picks-list").replaceChildren(...kids);
   }
 
   // ---------- orchestration ----------
@@ -738,6 +754,7 @@
     renderStepper();
     renderRail(r);
     renderLadder(r);
+    renderPicks();
     renderMobileBar(r);
     const bar = document.getElementById("mobile-bar");
     bar.classList.toggle("fresh", !!(fresh && fresh.tier && r.ready));

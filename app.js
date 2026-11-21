@@ -464,7 +464,7 @@
     const url = shareUrl();
     try {
       if (navigator.share && matchMedia("(pointer: coarse)").matches) {
-        await navigator.share({ title: "My headphone result: Before You Buy", url });
+        await navigator.share({ title: D.shareTitle || "My result: Before You Buy", url });
         return;
       }
       await navigator.clipboard.writeText(url);

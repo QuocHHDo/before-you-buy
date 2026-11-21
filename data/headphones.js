@@ -5,6 +5,16 @@ window.SITE_DATA = {
   title: "Before you buy headphones",
   tagline: "The questions you didn't know to ask.",
   lastChecked: "November 2026",
+  shareTitle: "My headphone result: Before You Buy",
+  defaultForm: "earbuds",
+
+  // What each "must have" is checked against on a pick's `facts`.
+  needDefs: {
+    ipx4: { label: "Sweat resistant (IPX4+)", fact: "ipx", min: 4 },
+    multipoint: { label: "Multipoint", fact: "multipoint", is: true },
+    anc: { label: "Noise cancelling", fact: "anc", is: true },
+    lowLatency: { label: "Low latency", fact: "lowLatency", is: true }
+  },
 
   forms: {
     "earbuds": "Wireless earbuds",

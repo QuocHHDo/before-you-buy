@@ -7,13 +7,21 @@
   const Q = D.questions;
   const tierIdx = (id) => D.tiers.findIndex((t) => t.id === id);
 
-  // Each need is checked against a pick's `facts`. A missing fact means "unknown", never "no".
-  const NEEDS = {
-    ipx4: { label: "Sweat resistant (IPX4+)", test: (f) => (f.ipx === undefined ? undefined : f.ipx >= 4) },
-    multipoint: { label: "Multipoint", test: (f) => (f.multipoint === undefined ? undefined : f.multipoint === true) },
-    anc: { label: "Noise cancelling", test: (f) => (f.anc === undefined ? undefined : f.anc === true) },
-    lowLatency: { label: "Low latency", test: (f) => (f.lowLatency === undefined ? undefined : f.lowLatency === true) },
-  };
+  // Needs are declared in the category's data file (D.needDefs), e.g.
+  //   ipx4: { label: "Sweat resistant (IPX4+)", fact: "ipx", min: 4 }
+  //   anc:  { label: "Noise cancelling", fact: "anc", is: true }
+  // A missing fact means "unknown", never "no".
+  const NEEDS = {};
+  for (const [id, d] of Object.entries(D.needDefs || {})) {
+    NEEDS[id] = {
+      label: d.label,
+      test: (f) => {
+        const v = f[d.fact];
+        if (v === undefined) return undefined;
+        return d.min !== undefined ? v >= d.min : v === d.is;
+      },
+    };
+  }
   const needLabel = (id) => (NEEDS[id] ? NEEDS[id].label : id);
 
   function answeredCount(answers) {
@@ -56,7 +64,7 @@
     const order = Object.keys(D.forms);
     const form =
       Object.entries(votes).sort((a, b) => b[1] - a[1] || order.indexOf(a[0]) - order.indexOf(b[0]))[0]?.[0] ||
-      "earbuds";
+      D.defaultForm || order[0];
     const n = answeredCount(answers);
     return {
       n,

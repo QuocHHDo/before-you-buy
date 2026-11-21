@@ -1,21 +1,23 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Starting with headphones.
+The questions you didn't know to ask before buying electronics. Starting with headphones and electric toothbrushes.
 
 A static site with no build step: plain HTML, CSS and JS. Answers are saved in your browser (localStorage).
 
 ## Structure
 
 ```
-index.html            page shell
+index.html            headphones page
+toothbrush.html       electric toothbrush page (same shell, different data file)
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/rules.test.js   example-buyer tests: node tests/rules.test.js
+tests/*.test.js       example-buyer tests: node tests/rules.test.js and node tests/toothbrush.test.js
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
+data/toothbrushes.js  same shape for toothbrushes
 ```
 
-To change the content, edit `data/headphones.js`. Each pick can carry `facts` (`anc`, `ipx`, `multipoint`, `lowLatency`); leave a fact out when unconfirmed and the site shows "?" instead of guessing. You shouldn't need to touch `app.js`.
+To change the content, edit `data/headphones.js`. Each category declares `needDefs` (what a "must have" checks) and each pick can carry `facts` (e.g. `anc`, `ipx`, `multipoint`, `pressure`, `ada`); leave a fact out when unconfirmed and the site shows "?" instead of guessing. You shouldn't need to touch `app.js`.
 
 ## Run locally
 
@@ -67,3 +69,9 @@ Only `picks` and `lastChecked` go stale. Each pick shows "Listed Nov 2026" (from
 ## Link preview & icons
 
 `og.png` (1200×630) is the image shown when the link is shared. `favicon.svg`, `favicon-32.png` and `apple-touch-icon.png` are the site icons. The `og:url` / `og:image` tags in `index.html` use the absolute GitHub Pages URL. Update them if you move to a custom domain.
+
+## Add a category
+
+1. Copy `data/headphones.js` to `data/<name>.js` and fill in forms, tiers, questions, `needDefs`, brand table, traps and picks.
+2. Copy `index.html` to `<name>.html`, point it at the new data file, and update the title, meta tags and nav.
+3. Add an `og-<name>.png` and a `tests/<name>.test.js`.

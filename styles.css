@@ -449,3 +449,9 @@ a { color: inherit; }
   width: 100%; font: inherit; font-size: 13px; padding: 8px 10px; border-radius: 8px;
   border: 1px solid var(--rail-line); background: transparent; color: var(--rail-muted);
 }
+
+/* pick dates */
+.mp-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 4px; }
+.mp-foot .mp-link { margin-top: 0; }
+.mp-date { font-size: 12px; color: var(--rail-muted); }
+.pr-date { font-size: 12px; color: var(--muted); margin-top: 2px; }

@@ -494,6 +494,14 @@
     );
   }
 
+  function pickDate(p) {
+    const fmt = (ym) => {
+      const [y, m] = ym.split("-").map(Number);
+      return new Date(y, m - 1, 1).toLocaleDateString("en-US", { month: "short", year: "numeric" });
+    };
+    return p.checked ? "Price checked " + fmt(p.checked) : "Listed " + fmt(D.picksListed);
+  }
+
   function reviewLink(name) {
     return "https://www.google.com/search?q=" + encodeURIComponent(name + " review");
   }
@@ -504,7 +512,7 @@
       { class: "mini-pick", href: reviewLink(p.name), target: "_blank", rel: "noopener" },
       h("span", { class: "mp-name" }, p.name),
       h("span", { class: "mp-why" }, p.why),
-      h("span", { class: "mp-link" }, "Find reviews")
+      h("span", { class: "mp-foot" }, h("span", { class: "mp-link" }, "Find reviews"), h("span", { class: "mp-date" }, pickDate(p)))
     );
   }
 
@@ -650,7 +658,13 @@
               h(
                 "li",
                 { class: "pick-row" },
-                h("div", { class: "pr-main" }, h("span", { class: "pr-name" }, p.name), h("span", { class: "pr-form" }, D.forms[p.form])),
+                h(
+                  "div",
+                  { class: "pr-main" },
+                  h("span", { class: "pr-name" }, p.name),
+                  h("span", { class: "pr-form" }, D.forms[p.form]),
+                  h("span", { class: "pr-date" }, pickDate(p))
+                ),
                 h("p", { class: "pr-why" }, p.why),
                 h("a", { class: "pr-link", href: reviewLink(p.name), target: "_blank", rel: "noopener" }, "Find reviews")
               )

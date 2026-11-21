@@ -214,6 +214,8 @@ window.SITE_DATA = {
     { claim: "\"10,000+ five-star reviews\"", reality: "On unknown brands, reviews can be bought or merged across products. Prefer independent lab tests." }
   ],
 
+  // When each pick was added. Give a pick its own `checked: "2027-03"` once you verify its current price.
+  picksListed: "2026-11",
   picksNote: "Well-reviewed models, sorted by typical street price. Prices move a lot — check the current price and recent reviews before buying.",
   picks: [
     { name: "JLab Go Air Pop", tier: "budget", form: "earbuds", why: "Very cheap and light. Basic mic, no ANC. Fine as a gym or backup pair." },

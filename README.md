@@ -60,4 +60,8 @@ Answers are kept in the URL hash, e.g. `#budget=150&use=commute&calls=often`. "S
 
 ## Keeping it fresh
 
-Only `picks` and `lastChecked` go stale. Review them about once a year.
+Only `picks` and `lastChecked` go stale. Each pick shows "Listed Nov 2026" (from `picksListed`) until you verify its price; then add `checked: "YYYY-MM"` to that pick and it shows "Price checked …" instead. Review about once a year.
+
+## Link preview & icons
+
+`og.png` (1200×630) is the image shown when the link is shared. `favicon.svg`, `favicon-32.png` and `apple-touch-icon.png` are the site icons. The `og:url` / `og:image` tags in `index.html` use the absolute GitHub Pages URL. Update them if you move to a custom domain.

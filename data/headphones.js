@@ -238,19 +238,19 @@ window.SITE_DATA = {
     { name: "HyperX Cloud III", facts: { anc: false, multipoint: false, lowLatency: true }, tier: "mid", form: "gaming", why: "Wired gaming headset: comfortable, solid mic, zero wireless lag." },
 
     { name: "Apple AirPods Pro 3", facts: { anc: true, ipx: 7 }, tier: "upper", form: "earbuds", why: "Best pick for iPhone users: strong ANC, great calls, Apple ecosystem perks." },
-    { name: "Samsung Galaxy Buds4 Pro", facts: { anc: true, ipx: 7 }, tier: "upper", form: "earbuds", why: "The Samsung-phone counterpart to AirPods Pro." },
+    { name: "Samsung Galaxy Buds4 Pro", facts: { anc: true, ipx: 7 }, tier: "upper", form: "earbuds", why: "The Samsung-phone counterpart to AirPods Pro. $249 list. 24-bit audio needs a Galaxy phone.", checked: "2026-11" },
     { name: "Sennheiser Momentum 4 Wireless", facts: { anc: true }, tier: "upper", form: "over-ear", why: "Very long battery life and sound-first tuning. Often discounted." },
-    { name: "Sony WH-1000XM5", facts: { anc: true }, tier: "upper", form: "over-ear", why: "Last generation's flagship, now often discounted into this tier. Still excellent ANC." },
+    { name: "Sony WH-1000XM5", facts: { anc: true }, tier: "upper", form: "over-ear", why: "Last generation's flagship, now often discounted into this tier. Still excellent ANC. $400 list; sale prices have gone as low as about $200.", checked: "2026-11" },
     { name: "Sennheiser HD 560S", facts: { anc: false, multipoint: false, lowLatency: true }, tier: "upper", form: "wired-over-ear", why: "Open-back wired headphones for detailed sound at home. Leaks sound; no ANC." },
     { name: "SteelSeries Arctis Nova 7 Wireless", facts: { lowLatency: true }, tier: "upper", form: "gaming", why: "2.4 GHz dongle plus Bluetooth at once. A popular wireless gaming pick." },
-    { name: "Logitech G PRO X 2 LIGHTSPEED", facts: { lowLatency: true }, tier: "upper", form: "gaming", why: "Low-latency wireless gaming headset with long battery life." },
+    { name: "Logitech G PRO X 2 LIGHTSPEED", facts: { lowLatency: true }, tier: "upper", form: "gaming", why: "Low-latency wireless gaming headset with long battery life. About $230–250.", checked: "2026-11" },
 
     { name: "Sony WH-1000XM6", facts: { anc: true, ipx: 0, multipoint: true }, tier: "premium", form: "over-ear", why: "Top-tier ANC and features." },
     { name: "Bose QuietComfort Ultra Headphones (2nd Gen)", facts: { anc: true }, tier: "premium", form: "over-ear", why: "Top-tier ANC with a famously comfortable fit." },
     { name: "Bowers & Wilkins Px8 S2", facts: { anc: true }, tier: "premium", form: "over-ear", why: "Luxury materials and build. You're paying for design more than features." },
     { name: "Sony WF-1000XM6", facts: { anc: true, ipx: 4, multipoint: true }, tier: "premium", form: "earbuds", why: "Flagship ANC earbuds that work well on any phone." },
-    { name: "Technics EAH-AZ100", facts: { anc: true, ipx: 4, multipoint: true }, tier: "premium", form: "earbuds", why: "Flagship earbuds with strong sound and three-device multipoint." },
-    { name: "Sennheiser HD 600", facts: { anc: false, multipoint: false, lowLatency: true }, tier: "premium", form: "wired-over-ear", why: "Long-running reference open-back. Benefits from a headphone amp." },
-    { name: "Audeze Maxwell 2", facts: { lowLatency: true }, tier: "premium", form: "gaming", why: "High-end wireless gaming headset known for its sound." }
+    { name: "Technics EAH-AZ100", facts: { anc: true, ipx: 4, multipoint: true }, tier: "upper", form: "earbuds", why: "Flagship earbuds with strong sound and three-device multipoint. $300 list, but usually sold around $220–250.", checked: "2026-11" },
+    { name: "Sennheiser HD 600", facts: { anc: false, multipoint: false, lowLatency: true }, tier: "upper", form: "wired-over-ear", why: "Long-running reference open-back. Benefits from a headphone amp. $450 list, but often sold around $220–300.", checked: "2026-11" },
+    { name: "Audeze Maxwell 2", facts: { anc: false, lowLatency: true }, tier: "premium", form: "gaming", why: "High-end wireless gaming headset known for its sound. $329 (PlayStation) or $349 (Xbox). The version with noise cancelling is $429.", checked: "2026-11" }
   ]
 };

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before You Buy · Headphones</title>
+  <meta name="description" content="The questions you didn't know to ask before buying headphones: price tiers, brand vs no-name, and marketing traps." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="./">Before You Buy</a>
+      <nav aria-label="Categories">
+        <a class="nav-link active" href="./" aria-current="page">Headphones</a>
+        <span class="nav-link soon" title="Coming soon">Keyboards</span>
+        <span class="nav-link soon" title="Coming soon">Mice</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1 id="page-title">Before you buy headphones</h1>
+      <p class="tagline" id="page-tagline"></p>
+      <p class="hero-sub">Answer a few quick questions to get your price tier, the features you actually need, and what you can skip. Your answers are saved in this browser, so next time you can pick up where you left off.</p>
+      <div class="progress" aria-live="polite">
+        <div class="progress-bar"><span id="progress-fill"></span></div>
+        <span id="progress-text"></span>
+      </div>
+    </section>
+
+    <section id="questions" aria-labelledby="q-heading">
+      <h2 id="q-heading">Questions you didn't think to ask</h2>
+      <div class="q-grid" id="q-grid"></div>
+    </section>
+
+    <section id="result" aria-labelledby="r-heading" aria-live="polite">
+      <h2 id="r-heading">Your result</h2>
+      <div id="result-body"></div>
+    </section>
+
+    <section id="ladder" aria-labelledby="l-heading">
+      <h2 id="l-heading">The price ladder: what each tier adds</h2>
+      <div class="ladder" id="ladder-grid"></div>
+    </section>
+
+    <section id="brand" aria-labelledby="b-heading">
+      <h2 id="b-heading">Brand vs no-name</h2>
+      <div class="table-scroll"><table class="brand-table" id="brand-table"></table></div>
+      <p class="verdict" id="brand-verdict"></p>
+    </section>
+
+    <section id="traps" aria-labelledby="t-heading">
+      <h2 id="t-heading">Marketing traps</h2>
+      <div class="traps" id="traps-grid"></div>
+    </section>
+
+    <section id="picks" aria-labelledby="p-heading">
+      <h2 id="p-heading">Example picks per tier</h2>
+      <p class="muted" id="picks-note"></p>
+      <div class="picks" id="picks-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span id="last-checked"></span>
+      <button type="button" class="btn-ghost" id="reset-btn">Reset my answers</button>
+    </div>
+  </footer>
+
+  <script src="data/headphones.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

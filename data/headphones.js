@@ -17,6 +17,7 @@ window.SITE_DATA = {
   tiers: [
     {
       id: "budget",
+      value: 0.38,
       name: "Budget",
       range: "Under $50",
       adds: "Decent sound, basic Bluetooth, OK battery life.",
@@ -25,6 +26,7 @@ window.SITE_DATA = {
     },
     {
       id: "mid",
+      value: 0.76,
       name: "Mid",
       range: "$50–150",
       adds: "Real noise cancelling (ANC), an app with EQ, multipoint on many models, better fit and battery.",
@@ -34,6 +36,7 @@ window.SITE_DATA = {
     },
     {
       id: "upper",
+      value: 0.9,
       name: "Upper",
       range: "$150–300",
       adds: "Strong ANC, good call mics, ecosystem perks (e.g. AirPods with iPhone), better comfort.",
@@ -43,6 +46,7 @@ window.SITE_DATA = {
     },
     {
       id: "premium",
+      value: 0.96,
       name: "Premium",
       range: "$300+",
       adds: "Best-in-class ANC, top mic processing, premium materials, the brand name.",

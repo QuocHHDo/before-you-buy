@@ -2,73 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Before You Buy · Headphones</title>
-  <meta name="description" content="The questions you didn't know to ask before buying headphones: price tiers, brand vs no-name, and marketing traps." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Before You Buy: Headphones</title>
+  <meta name="description" content="The questions you didn't know to ask before buying headphones: your price tier, must-have features, what to skip, and marketing traps." />
+  <meta name="theme-color" content="#EEF1F3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111417" media="(prefers-color-scheme: dark)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#tool">Skip to the questions</a>
+
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="./">Before You Buy</a>
-      <nav aria-label="Categories">
-        <a class="nav-link active" href="./" aria-current="page">Headphones</a>
-        <span class="nav-link soon" title="Coming soon">Keyboards</span>
-        <span class="nav-link soon" title="Coming soon">Mice</span>
+      <nav class="cats" aria-label="Categories">
+        <a class="cat active" href="./" aria-current="page">Headphones</a>
+        <span class="cat soon" aria-disabled="true">Keyboards <small>soon</small></span>
+        <span class="cat soon" aria-disabled="true">Mice <small>soon</small></span>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
+  <main>
+    <section class="hero wrap">
       <h1 id="page-title">Before you buy headphones</h1>
       <p class="tagline" id="page-tagline"></p>
-      <p class="hero-sub">Answer a few quick questions to get your price tier, the features you actually need, and what you can skip. Your answers are saved in this browser, so next time you can pick up where you left off.</p>
-      <div class="progress" aria-live="polite">
-        <div class="progress-bar"><span id="progress-fill"></span></div>
-        <span id="progress-text"></span>
-      </div>
+      <p class="hero-sub">A few questions, one at a time. Each answer shows what it changes, and your result builds as you go. Answers stay saved in this browser.</p>
     </section>
 
-    <section id="questions" aria-labelledby="q-heading">
-      <h2 id="q-heading">Questions you didn't think to ask</h2>
-      <div class="q-grid" id="q-grid"></div>
+    <section id="tool" class="wrap tool" aria-label="Headphone finder">
+      <div class="stepper" id="stepper"></div>
+      <aside class="rail" id="rail" aria-live="polite" aria-label="Your result"></aside>
     </section>
 
-    <section id="result" aria-labelledby="r-heading" aria-live="polite">
-      <h2 id="r-heading">Your result</h2>
-      <div id="result-body"></div>
+    <nav class="wrap jump" aria-label="On this page">
+      <span class="jump-label">Learn the market</span>
+      <a href="#ladder">Price ladder</a>
+      <a href="#brand">Brand vs no-name</a>
+      <a href="#traps">Marketing traps</a>
+      <a href="#picks">All picks</a>
+    </nav>
+
+    <section id="ladder" class="wrap block" aria-labelledby="l-heading">
+      <h2 id="l-heading">Where spending more stops paying off</h2>
+      <p class="lede">Each tier adds something, but the jump from budget to mid is far bigger than anything after it.</p>
+      <div class="ladder-chart" id="ladder-chart"></div>
+      <div class="ladder-cols" id="ladder-cols"></div>
     </section>
 
-    <section id="ladder" aria-labelledby="l-heading">
-      <h2 id="l-heading">The price ladder: what each tier adds</h2>
-      <div class="ladder" id="ladder-grid"></div>
-    </section>
-
-    <section id="brand" aria-labelledby="b-heading">
+    <section id="brand" class="wrap block" aria-labelledby="b-heading">
       <h2 id="b-heading">Brand vs no-name</h2>
+      <p class="lede" id="brand-verdict"></p>
       <div class="table-scroll"><table class="brand-table" id="brand-table"></table></div>
-      <p class="verdict" id="brand-verdict"></p>
+      <div class="brand-cards" id="brand-cards"></div>
     </section>
 
-    <section id="traps" aria-labelledby="t-heading">
+    <section id="traps" class="wrap block" aria-labelledby="t-heading">
       <h2 id="t-heading">Marketing traps</h2>
-      <div class="traps" id="traps-grid"></div>
+      <p class="lede">What the box says, and what it actually means.</p>
+      <dl class="traps" id="traps-list"></dl>
     </section>
 
-    <section id="picks" aria-labelledby="p-heading">
-      <h2 id="p-heading">Example picks per tier</h2>
-      <p class="muted" id="picks-note"></p>
-      <div class="picks" id="picks-grid"></div>
+    <section id="picks" class="wrap block" aria-labelledby="p-heading">
+      <h2 id="p-heading">Example picks</h2>
+      <p class="lede" id="picks-note"></p>
+      <div class="filters" id="pick-filters" role="group" aria-label="Filter by type"></div>
+      <div id="picks-list"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span id="last-checked"></span>
-      <button type="button" class="btn-ghost" id="reset-btn">Reset my answers</button>
+      <button type="button" class="btn btn-quiet" id="reset-btn">Start over</button>
     </div>
   </footer>
+
+  <div class="mobile-bar" id="mobile-bar" hidden>
+    <div class="mobile-bar-text" id="mobile-bar-text"></div>
+    <button type="button" class="btn btn-primary" id="mobile-bar-btn">See result</button>
+  </div>
 
   <script src="data/headphones.js"></script>
   <script src="app.js"></script>

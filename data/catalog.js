@@ -26,7 +26,10 @@ window.BYB_CATALOG = {
       { id: "doorbells", name: "Video doorbells", href: "video-doorbell.html", blurb: "Monthly fees, local storage, and what you can see." },
       { id: "robot-vacuums", name: "Robot vacuums", href: "robot-vacuum.html", blurb: "Mapping, mopping, and who runs the app." },
       { id: "mattresses", name: "Mattresses", href: "mattress.html", blurb: "Trial rules, fake list prices, and warranty fine print." },
-      { id: "tires", name: "Car tires", short: "Tires", href: "tire.html", blurb: "Date codes, the winter snowflake, and install fees." }
+      { id: "tires", name: "Car tires", short: "Tires", href: "tire.html", blurb: "Date codes, the winter snowflake, and install fees." },
+      { id: "vacuums", name: "Vacuum cleaners", short: "Vacuums", href: "vacuum.html", blurb: "Real run time, battery swaps, and filter costs." },
+      { id: "water-filters", name: "Water filters", short: "Filters", href: "water-filter.html", blurb: "What NSF numbers cover, and what refills cost." },
+      { id: "security-cameras", name: "Security cameras", short: "Cameras", href: "security-camera.html", blurb: "Subscriptions, local storage, and battery or solar." }
     ]}
   ]
 };

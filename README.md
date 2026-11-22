@@ -1,24 +1,29 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Covers headphones, electric toothbrushes, keyboards and mice.
+The questions you didn't know to ask before buying electronics. Eight guides: headphones, smartwatches, keyboards, mice, power banks, electric toothbrushes, air purifiers and robot vacuums.
 
 A static site with no build step: plain HTML, CSS and JS. Answers are saved in your browser (localStorage).
 
 ## Structure
 
 ```
-index.html            headphones page
-toothbrush.html       electric toothbrush page (same shell, different data file)
-keyboard.html         keyboard page
-mouse.html            mouse page
+guides.html           hub page listing every guide, grouped by theme
+index.html            headphones page (kept at the root so old shared links work)
+smartwatch.html, keyboard.html, mouse.html, charger.html,
+toothbrush.html, air-purifier.html, robot-vacuum.html
+                      one page per guide (same shell, different data file)
+nav.js                "All guides" menu, footer links and the hub list; reads data/catalog.js
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests: node tests/rules.test.js, toothbrush.test.js, keyboard.test.js, mouse.test.js
+tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
 data/toothbrushes.js  same shape for toothbrushes
 data/keyboards.js     same shape for keyboards
 data/mice.js          same shape for mice
+data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js
+                      same shape for the other guides
+data/catalog.js       the list of guides and their themes (menu, hub and footer read this)
 ```
 
 To change the content, edit `data/headphones.js`. Each category declares `needDefs` (what a "must have" checks) and each pick can carry `facts` (e.g. `anc`, `ipx`, `multipoint`, `pressure`, `ada`); leave a fact out when unconfirmed and the site shows "?" instead of guessing. You shouldn't need to touch `app.js`.
@@ -58,14 +63,6 @@ The result panel also explains **why** it chose a tier, listing each answer that
 
 Answers are kept in the URL hash, e.g. `#budget=150&use=commute&calls=often`. "Share this result" copies that link (or opens the share sheet on phones). Opening a shared link loads those answers; if the visitor had their own saved answers, they get a button to go back to them.
 
-## Adding a category later
-
-1. Copy `data/headphones.js` to `data/keyboards.js` and rewrite the content.
-2. Copy `index.html` to `keyboards.html` and change the data `<script>` tag.
-3. Update the nav links.
-
-(At 3+ categories, it's worth moving to Astro so one template generates every page.)
-
 ## Keeping it fresh
 
 Only `picks` and `lastChecked` go stale. Each pick shows "Listed Nov 2026" (from `picksListed`) until you verify its price; then add `checked: "YYYY-MM"` to that pick and it shows "Price checked …" instead. Review about once a year.
@@ -77,5 +74,6 @@ Only `picks` and `lastChecked` go stale. Each pick shows "Listed Nov 2026" (from
 ## Add a category
 
 1. Copy `data/headphones.js` to `data/<name>.js` and fill in forms, tiers, questions, `needDefs`, brand table, traps and picks.
-2. Copy `index.html` to `<name>.html`, point it at the new data file, and update the title, meta tags and nav.
-3. Add an `og-<name>.png` and a `tests/<name>.test.js`.
+2. Copy any category page (for example `keyboard.html`) to `<name>.html`, point it at the new data file, and update the title and meta tags. The nav comes from `nav.js`.
+3. Add the guide to `data/catalog.js` (pick a theme group, or add one). The menu, hub page and footer update on their own.
+4. Add an `og-<name>.png` and a `tests/<name>.test.js`.

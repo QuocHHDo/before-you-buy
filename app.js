@@ -96,6 +96,7 @@
   const L = window.BYB_LOGIC(D, { minAnswers: MIN_ANSWERS });
   const compute = () => L.compute(answers);
   const picksFor = (tierId, form, needs) => L.picksFor(tierId, form, needs);
+  const P = window.BYB_PROMPT ? window.BYB_PROMPT(D, L) : null;
 
   // ✓ / ✕ / ? chips for the buyer's must-haves
   const MARK = { yes: "✓", no: "✕", unknown: "?" };
@@ -401,6 +402,7 @@
       );
 
     if (r.n > 0) kids.push(shareBlock());
+    if (r.ready && P) kids.push(promptBlock());
 
     rail.replaceChildren(...kids);
   }
@@ -458,6 +460,61 @@
       h("p", { class: "rail-text share-msg", "aria-live": "polite" }, shareMsg || "Opens the same answers on any device."),
       h("input", { class: "share-url", type: "text", readonly: true, value: url, "aria-label": "Link to this result", onfocus: (e) => e.target.select() })
     );
+  }
+
+  // ---------- copy-ready prompt for an AI agent ----------
+  let promptMode = "find";
+  let promptNames = ["", ""];
+  function promptBlock() {
+    const area = h("textarea", { class: "prompt-text", readonly: true, rows: 9, "aria-label": "Prompt to copy" });
+    const msg = h("p", { class: "rail-text prompt-msg", "aria-live": "polite" }, "");
+    const modeBtns = Object.entries(P.MODES).map(([id, label]) =>
+      h("button", { type: "button", class: "chip chip-rail", "aria-pressed": id === promptMode ? "true" : "false", "data-mode": id, onclick: () => setMode(id) }, label)
+    );
+    const inputA = h("input", { class: "prompt-name", type: "text", "aria-label": "Product name or model number", autocomplete: "off", value: promptNames[0],
+      oninput: (e) => { promptNames[0] = e.target.value; refresh(); } });
+    const inputB = h("input", { class: "prompt-name", type: "text", "aria-label": "Second product name or model number", autocomplete: "off", value: promptNames[1],
+      oninput: (e) => { promptNames[1] = e.target.value; refresh(); } });
+    const names = h("div", { class: "prompt-names" }, inputA, inputB);
+
+    function refresh() {
+      area.value = P.build(answers, promptMode, promptNames);
+      msg.textContent = "";
+    }
+    function setMode(id) {
+      promptMode = id;
+      modeBtns.forEach((b) => b.setAttribute("aria-pressed", b.getAttribute("data-mode") === id ? "true" : "false"));
+      names.hidden = id === "find";
+      inputB.hidden = id !== "compare";
+      inputA.placeholder = id === "compare" ? "First product" : "Product name or model";
+      inputB.placeholder = "Second product";
+      refresh();
+    }
+    async function copy() {
+      const text = area.value;
+      try {
+        await navigator.clipboard.writeText(text);
+        msg.textContent = "Prompt copied. Paste it into your AI agent.";
+      } catch (e) {
+        area.select();
+        let ok = false;
+        try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+        msg.textContent = ok ? "Prompt copied. Paste it into your AI agent." : "Couldn't copy automatically. The text is selected, so copy it by hand.";
+      }
+    }
+    const box = h(
+      "div",
+      { class: "rail-sec prompt" },
+      h("h3", {}, "Ask an AI agent"),
+      h("p", { class: "rail-text" }, "Copies your answers into a prompt. An agent that can browse can then check current prices and specs."),
+      h("div", { class: "prompt-modes", role: "group", "aria-label": "Prompt type" }, modeBtns),
+      names,
+      area,
+      h("button", { type: "button", class: "btn btn-signal", onclick: copy }, "Copy prompt"),
+      msg
+    );
+    setMode(promptMode);
+    return box;
   }
 
   async function shareResult() {

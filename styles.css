@@ -626,3 +626,17 @@ a { color: inherit; }
 .sr-title { display: block; font-weight: 700; }
 .sr-body { display: block; font-size: 15px; color: var(--muted); }
 .search mark { background: var(--signal-soft); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+/* ---------- prompt for an AI agent (result rail) ---------- */
+.prompt-modes { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.chip-rail { font-size: 13px; padding: 5px 11px; background: transparent; color: var(--bg); border-color: var(--rail-line); }
+.chip-rail:hover { border-color: var(--bg); }
+.chip-rail[aria-pressed="true"] { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+.prompt-names { display: grid; gap: 8px; margin-bottom: 10px; }
+.prompt-names[hidden], .prompt-name[hidden] { display: none; }
+.prompt-name, .prompt-text {
+  width: 100%; font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--rail-line); background: transparent; color: var(--bg);
+}
+.prompt-text { display: block; margin-bottom: 10px; font-size: 13px; line-height: 1.45; resize: vertical; min-height: 140px; }
+.prompt-msg { margin: 8px 0 0; min-height: 1.4em; }

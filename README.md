@@ -17,8 +17,9 @@ toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-
 nav.js                "All guides" menu, footer links and the hub list; reads data/catalog.js
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
+prompt.js             builds the copy-and-paste AI agent prompt from a visitor's answers (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell, laptop, camera, speaker, tablet, monitor, phone, dashcam, mattress, tire, vacuum, water-filter, security-camera, laundry
+tests/*.test.js       example-buyer tests, one per guide, plus prompt.test.js: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell, laptop, camera, speaker, tablet, monitor, phone, dashcam, mattress, tire, vacuum, water-filter, security-camera, laundry
                       plus search.test.js, which fails if data/search-index.js is out of date
 search.js             site search on the hub page (reads data/search-index.js)
 data/search-index.js  generated; rebuild with: node tools/build-search-index.js

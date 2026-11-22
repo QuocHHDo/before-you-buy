@@ -8,7 +8,8 @@ window.BYB_CATALOG = {
       { id: "cameras", name: "Cameras", href: "camera.html", blurb: "Lenses cost more than the body, and prices are rising." },
       { id: "speakers", name: "Speakers and soundbars", short: "Speakers", href: "speaker.html", blurb: "Waterproof ratings, HDMI eARC, and what Atmos really costs." },
       { id: "smartwatches", name: "Smartwatches and fitness trackers", short: "Smartwatches", href: "smartwatch.html", blurb: "Whether it works with your phone, and what you pay for monthly." },
-      { id: "smart-rings", name: "Smart rings", short: "Rings", href: "smart-ring.html", blurb: "Membership fees, battery claims, and getting the size right." }
+      { id: "smart-rings", name: "Smart rings", short: "Rings", href: "smart-ring.html", blurb: "Membership fees, battery claims, and getting the size right." },
+      { id: "microphones", name: "Microphones", href: "microphone.html", blurb: "Dynamic or condenser, USB or XLR, and what your room does to it." }
     ]},
     { id: "computer", name: "Computer and power", items: [
       { id: "tablets", name: "Tablets and e-readers", short: "Tablets", href: "tablet.html", blurb: "Years of updates, price rises, and store lock-in." },
@@ -18,7 +19,8 @@ window.BYB_CATALOG = {
       { id: "mice", name: "Mice", href: "mouse.html", blurb: "Hand size and comfort before sensor specs." },
       { id: "laptops", name: "Laptops", href: "laptop.html", blurb: "RAM you can't add later, battery claims, and rising prices." },
       { id: "ssds", name: "SSDs", href: "ssd.html", blurb: "Peak speeds, fake drives, and why prices have jumped." },
-      { id: "chargers", name: "Power banks", href: "charger.html", blurb: "Real capacity, real output, and what you can fly with." }
+      { id: "chargers", name: "Power banks", href: "charger.html", blurb: "Real capacity, real output, and what you can fly with." },
+      { id: "graphics-cards", name: "Graphics cards", short: "GPUs", href: "graphics-card.html", blurb: "8 GB or 16 GB, street prices, and whether your power supply copes." }
     ]},
     { id: "home", name: "Home", items: [
       { id: "air-purifiers", name: "Air purifiers", href: "air-purifier.html", blurb: "Room size, filter costs, and designs that make ozone." },
@@ -26,6 +28,8 @@ window.BYB_CATALOG = {
       { id: "robot-vacuums", name: "Robot vacuums", href: "robot-vacuum.html", blurb: "Mapping, mopping, and who runs the app." },
       { id: "water-filters", name: "Water filters", short: "Filters", href: "water-filter.html", blurb: "What NSF numbers cover, and what refills cost." },
       { id: "laundry", name: "Washers and dryers", short: "Laundry", href: "laundry.html", blurb: "Front or top load, heat pump dryers, and real capacity." },
+      { id: "refrigerators", name: "Refrigerators", short: "Fridges", href: "refrigerator.html", blurb: "Ice maker repairs, French-door reliability, and counter-depth storage." },
+      { id: "dishwashers", name: "Dishwashers", href: "dishwasher.html", blurb: "Real noise, tub myths, and drying." },
       { id: "doorbells", name: "Video doorbells", href: "video-doorbell.html", blurb: "Monthly fees, local storage, and what you can see." },
       { id: "security-cameras", name: "Security cameras", short: "Cameras", href: "security-camera.html", blurb: "Subscriptions, local storage, and battery or solar." }
     ]},

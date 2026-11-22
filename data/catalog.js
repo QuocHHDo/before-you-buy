@@ -11,6 +11,8 @@ window.BYB_CATALOG = {
     ]},
     { id: "computer", name: "Computer and power", items: [
       { id: "tablets", name: "Tablets and e-readers", short: "Tablets", href: "tablet.html", blurb: "Years of updates, price rises, and store lock-in." },
+      { id: "phones", name: "Phones", href: "phone.html", blurb: "Years of updates, base storage, and rising prices." },
+      { id: "monitors", name: "Monitors", href: "monitor.html", blurb: "HDR400, response-time claims, and OLED burn-in warranties." },
       { id: "keyboards", name: "Keyboards", href: "keyboard.html", blurb: "Switch type, noise, and what wireless really costs." },
       { id: "mice", name: "Mice", href: "mouse.html", blurb: "Hand size and comfort before sensor specs." },
       { id: "laptops", name: "Laptops", href: "laptop.html", blurb: "RAM you can't add later, battery claims, and rising prices." },

@@ -7,6 +7,9 @@
   var input = document.getElementById("search-input");
   var out = document.getElementById("search-results");
   var status = document.getElementById("search-status");
+  var clear = document.getElementById("search-clear");
+  var ideas = document.getElementById("search-ideas");
+  var hub = document.getElementById("hub");
   var names = {};
   C.groups.forEach(function (g) { g.items.forEach(function (it) { names[it.id] = it.short || it.name; }); });
   var KIND = { trap: "Marketing trap", question: "Question", pick: "Example pick" };
@@ -32,7 +35,11 @@
   function run() {
     var q = input.value.trim().toLowerCase();
     out.replaceChildren();
-    if (q.length < 2) { status.textContent = ""; return; }
+    var active = q.length >= 2;
+    if (clear) clear.hidden = !input.value;
+    if (ideas) ideas.hidden = input.value.length > 0;
+    if (hub) hub.hidden = active;
+    if (!active) { status.textContent = ""; return; }
     var words = q.split(/\s+/).filter(Boolean);
     var hits = [];
     I.forEach(function (e) {
@@ -57,6 +64,16 @@
       a.append(meta, title, body); li.appendChild(a); out.appendChild(li);
     });
   }
+  if (ideas) {
+    ideas.appendChild(document.createTextNode("Popular searches: "));
+    ["monthly fee", "warranty", "battery", "filter cost", "subscription"].forEach(function (w) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "chip chip-small"; b.textContent = w;
+      b.addEventListener("click", function () { input.value = w; run(); input.focus(); });
+      ideas.appendChild(b);
+    });
+    ideas.hidden = false;
+  }
+  if (clear) clear.addEventListener("click", function () { input.value = ""; run(); input.focus(); });
   form.addEventListener("submit", function (e) { e.preventDefault(); run(); });
   input.addEventListener("input", run);
   if (location.hash === "#search") input.focus();

@@ -68,9 +68,25 @@
     foot.appendChild(ul2);
   }
 
-  // hub page
+  // hub page: filter chips plus a card grid per group
   var hub = document.getElementById("hub");
   if (hub) {
+    var total = all().length;
+    var secs = [];
+    var chips = el("div", { "class": "hub-filter", role: "group", "aria-label": "Show guides by topic" });
+    var chipBtns = [];
+    function show(id) {
+      secs.forEach(function (s) { s.node.hidden = !(id === "all" || s.id === id); });
+      chipBtns.forEach(function (b) { b.btn.setAttribute("aria-pressed", b.id === id ? "true" : "false"); });
+    }
+    function addChip(id, text) {
+      var b = el("button", { type: "button", "class": "chip", "aria-pressed": id === "all" ? "true" : "false", text: text });
+      b.addEventListener("click", function () { show(id); });
+      chips.appendChild(b); chipBtns.push({ id: id, btn: b });
+    }
+    addChip("all", "All " + total);
+    C.groups.forEach(function (g) { addChip(g.id, g.name + " " + g.items.length); });
+    hub.appendChild(chips);
     C.groups.forEach(function (g) {
       var sec = el("section", { "class": "hub-group" }, el("h2", { text: g.name }));
       var ul3 = el("ul", { "class": "hub-list" });
@@ -81,6 +97,9 @@
       });
       sec.appendChild(ul3);
       hub.appendChild(sec);
+      secs.push({ id: g.id, node: sec });
     });
+    var count = document.getElementById("guide-count");
+    if (count) count.textContent = total;
   }
 })();

@@ -1,6 +1,6 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Seventeen guides: headphones, TVs, cameras, speakers and soundbars, smartwatches, phones, tablets and e-readers, monitors, keyboards, mice, laptops, SSDs, power banks, electric toothbrushes, air purifiers, video doorbells and robot vacuums.
+The questions you didn't know to ask before buying electronics. Twenty guides: headphones, TVs, cameras, dash cams, speakers and soundbars, smartwatches, phones, tablets and e-readers, monitors, keyboards, mice, laptops, SSDs, power banks, mattresses, car tires, electric toothbrushes, air purifiers, video doorbells and robot vacuums.
 
 Beyond the questions: compare any two picks side by side, search every guide's traps, questions and picks from the hub, and picks whose price check is over 90 days old show a "Price may have changed" badge.
 
@@ -12,13 +12,13 @@ A static site with no build step: plain HTML, CSS and JS. Answers are saved in y
 guides.html           hub page listing every guide, grouped by theme
 index.html            headphones page (kept at the root so old shared links work)
 smartwatch.html, keyboard.html, mouse.html, charger.html,
-toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-doorbell.html, laptop.html, camera.html, speaker.html, tablet.html, monitor.html, phone.html
+toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-doorbell.html, laptop.html, camera.html, speaker.html, tablet.html, monitor.html, phone.html, dashcam.html, mattress.html, tire.html
                       one page per guide (same shell, different data file)
 nav.js                "All guides" menu, footer links and the hub list; reads data/catalog.js
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell, laptop, camera, speaker, tablet, monitor, phone
+tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell, laptop, camera, speaker, tablet, monitor, phone, dashcam, mattress, tire
                       plus search.test.js, which fails if data/search-index.js is out of date
 search.js             site search on the hub page (reads data/search-index.js)
 data/search-index.js  generated; rebuild with: node tools/build-search-index.js
@@ -27,7 +27,7 @@ data/headphones.js    all headphone content: questions, tiers, brand table, trap
 data/toothbrushes.js  same shape for toothbrushes
 data/keyboards.js     same shape for keyboards
 data/mice.js          same shape for mice
-data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js, tvs.js, ssds.js, video-doorbells.js, laptops.js, cameras.js, speakers.js, tablets.js, monitors.js, phones.js
+data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js, tvs.js, ssds.js, video-doorbells.js, laptops.js, cameras.js, speakers.js, tablets.js, monitors.js, phones.js, dashcams.js, mattresses.js, tires.js
                       same shape for the other guides
 data/catalog.js       the list of guides and their themes (menu, hub and footer read this)
 ```

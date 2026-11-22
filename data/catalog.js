@@ -7,6 +7,7 @@ window.BYB_CATALOG = {
       { id: "tvs", name: "TVs", href: "tv.html", blurb: "Panel type, fake motion rates, and what your smart TV reports." },
       { id: "cameras", name: "Cameras", href: "camera.html", blurb: "Lenses cost more than the body, and prices are rising." },
       { id: "speakers", name: "Speakers and soundbars", short: "Speakers", href: "speaker.html", blurb: "Waterproof ratings, HDMI eARC, and what Atmos really costs." },
+      { id: "dashcams", name: "Dash cams", href: "dashcam.html", blurb: "Parking mode, memory cards, heat, and cloud fees." },
       { id: "smartwatches", name: "Smartwatches and fitness trackers", short: "Smartwatches", href: "smartwatch.html", blurb: "Whether it works with your phone, and what you pay for monthly." }
     ]},
     { id: "computer", name: "Computer and power", items: [
@@ -23,7 +24,9 @@ window.BYB_CATALOG = {
       { id: "toothbrushes", name: "Electric toothbrushes", short: "Toothbrushes", href: "toothbrush.html", blurb: "What the brush heads cost over the years." },
       { id: "air-purifiers", name: "Air purifiers", href: "air-purifier.html", blurb: "Room size, filter costs, and designs that make ozone." },
       { id: "doorbells", name: "Video doorbells", href: "video-doorbell.html", blurb: "Monthly fees, local storage, and what you can see." },
-      { id: "robot-vacuums", name: "Robot vacuums", href: "robot-vacuum.html", blurb: "Mapping, mopping, and who runs the app." }
+      { id: "robot-vacuums", name: "Robot vacuums", href: "robot-vacuum.html", blurb: "Mapping, mopping, and who runs the app." },
+      { id: "mattresses", name: "Mattresses", href: "mattress.html", blurb: "Trial rules, fake list prices, and warranty fine print." },
+      { id: "tires", name: "Car tires", short: "Tires", href: "tire.html", blurb: "Date codes, the winter snowflake, and install fees." }
     ]}
   ]
 };

@@ -5,9 +5,12 @@ window.BYB_CATALOG = {
     { id: "audio", name: "Audio, video and wearables", items: [
       { id: "headphones", name: "Headphones", href: "./", blurb: "Which features are worth paying for, and which are marketing." },
       { id: "tvs", name: "TVs", href: "tv.html", blurb: "Panel type, fake motion rates, and what your smart TV reports." },
+      { id: "cameras", name: "Cameras", href: "camera.html", blurb: "Lenses cost more than the body, and prices are rising." },
+      { id: "speakers", name: "Speakers and soundbars", short: "Speakers", href: "speaker.html", blurb: "Waterproof ratings, HDMI eARC, and what Atmos really costs." },
       { id: "smartwatches", name: "Smartwatches and fitness trackers", short: "Smartwatches", href: "smartwatch.html", blurb: "Whether it works with your phone, and what you pay for monthly." }
     ]},
     { id: "computer", name: "Computer and power", items: [
+      { id: "tablets", name: "Tablets and e-readers", short: "Tablets", href: "tablet.html", blurb: "Years of updates, price rises, and store lock-in." },
       { id: "keyboards", name: "Keyboards", href: "keyboard.html", blurb: "Switch type, noise, and what wireless really costs." },
       { id: "mice", name: "Mice", href: "mouse.html", blurb: "Hand size and comfort before sensor specs." },
       { id: "laptops", name: "Laptops", href: "laptop.html", blurb: "RAM you can't add later, battery claims, and rising prices." },

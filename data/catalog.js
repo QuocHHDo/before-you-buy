@@ -20,7 +20,8 @@ window.BYB_CATALOG = {
       { id: "laptops", name: "Laptops", href: "laptop.html", blurb: "RAM you can't add later, battery claims, and rising prices." },
       { id: "ssds", name: "SSDs", href: "ssd.html", blurb: "Peak speeds, fake drives, and why prices have jumped." },
       { id: "chargers", name: "Power banks", href: "charger.html", blurb: "Real capacity, real output, and what you can fly with." },
-      { id: "graphics-cards", name: "Graphics cards", short: "GPUs", href: "graphics-card.html", blurb: "8 GB or 16 GB, street prices, and whether your power supply copes." }
+      { id: "graphics-cards", name: "Graphics cards", short: "GPUs", href: "graphics-card.html", blurb: "8 GB or 16 GB, street prices, and whether your power supply copes." },
+      { id: "wifi-routers", name: "Wi-Fi routers and mesh", short: "Routers", href: "wifi-router.html", blurb: "6 GHz bands, yearly security fees, and when your internet plan is the limit." }
     ]},
     { id: "home", name: "Home", items: [
       { id: "air-purifiers", name: "Air purifiers", href: "air-purifier.html", blurb: "Room size, filter costs, and designs that make ozone." },
@@ -30,6 +31,8 @@ window.BYB_CATALOG = {
       { id: "laundry", name: "Washers and dryers", short: "Laundry", href: "laundry.html", blurb: "Front or top load, heat pump dryers, and real capacity." },
       { id: "refrigerators", name: "Refrigerators", short: "Fridges", href: "refrigerator.html", blurb: "Ice maker repairs, French-door reliability, and counter-depth storage." },
       { id: "dishwashers", name: "Dishwashers", href: "dishwasher.html", blurb: "Real noise, tub myths, and drying." },
+      { id: "smart-locks", name: "Smart locks", href: "smart-lock.html", blurb: "Hub and bridge costs, battery life, and whether it fits your door." },
+      { id: "smart-thermostats", name: "Smart thermostats", short: "Thermostats", href: "smart-thermostat.html", blurb: "C-wires, heat pump support, and savings claims from the makers." },
       { id: "doorbells", name: "Video doorbells", href: "video-doorbell.html", blurb: "Monthly fees, local storage, and what you can see." },
       { id: "security-cameras", name: "Security cameras", short: "Cameras", href: "security-camera.html", blurb: "Subscriptions, local storage, and battery or solar." }
     ]},

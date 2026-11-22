@@ -7,7 +7,8 @@ window.BYB_CATALOG = {
       { id: "tvs", name: "TVs", href: "tv.html", blurb: "Panel type, fake motion rates, and what your smart TV reports." },
       { id: "cameras", name: "Cameras", href: "camera.html", blurb: "Lenses cost more than the body, and prices are rising." },
       { id: "speakers", name: "Speakers and soundbars", short: "Speakers", href: "speaker.html", blurb: "Waterproof ratings, HDMI eARC, and what Atmos really costs." },
-      { id: "smartwatches", name: "Smartwatches and fitness trackers", short: "Smartwatches", href: "smartwatch.html", blurb: "Whether it works with your phone, and what you pay for monthly." }
+      { id: "smartwatches", name: "Smartwatches and fitness trackers", short: "Smartwatches", href: "smartwatch.html", blurb: "Whether it works with your phone, and what you pay for monthly." },
+      { id: "smart-rings", name: "Smart rings", short: "Rings", href: "smart-ring.html", blurb: "Membership fees, battery claims, and getting the size right." }
     ]},
     { id: "computer", name: "Computer and power", items: [
       { id: "tablets", name: "Tablets and e-readers", short: "Tablets", href: "tablet.html", blurb: "Years of updates, price rises, and store lock-in." },

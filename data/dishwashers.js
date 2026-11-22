@@ -143,7 +143,7 @@ window.SITE_DATA = {
   ],
 
   picksListed: "2026-11",
-  factsNote: "Third-rack and noise checks use maker, retailer and reviewer listings, not our own testing. The quiet check uses the maker's rating, and testers sometimes measure higher. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers for models without a confirmed price are estimates.",
+  factsNote: "Third-rack and noise checks use maker, retailer and reviewer listings, not our own testing. The quiet check uses the maker's rating, and testers sometimes measure higher. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers follow regular prices, and sale prices can run several hundred dollars lower.",
   picksNote: "A short list of well-reviewed dishwashers. Models and prices change, so use these to learn what to look for and verify the model number, noise rating and current price.",
   picks: [
     { name: "Whirlpool WDF520PADM", facts: { thirdrack: false, quiet: false }, tier: "budget", form: "stainless", checked: "2026-11",
@@ -153,12 +153,12 @@ window.SITE_DATA = {
     { name: "GE GDF630PSMSS", facts: { thirdrack: true, quiet: false }, tier: "budget", form: "plastic", checked: "2026-11",
       why: "One roundup lists it at about $549 to $674 with a plastic interior, 16 place settings, 50 dBA and a third rack." },
     { name: "Frigidaire FDPC4314AS", facts: { thirdrack: false, quiet: false }, tier: "budget", form: "plastic", checked: "2026-11",
-      why: "AOL's roundup says it has a plastic tub, 12 place settings, Energy Star qualification and a 54 dBA rating. The price tier is our estimate, so check it." },
+      why: "Retailers list it at $399 on sale against a regular $499 or more, with a plastic tub, 14 place settings, 54 dBA and Energy Star. AOL's roundup says 12 place settings, so check the count." },
     { name: "Whirlpool WDT750SAKZ", facts: { thirdrack: true, quiet: false }, tier: "mid", form: "stainless", checked: "2026-11",
-      why: "Reviewed lists 13 place settings, 47 dBA, a third rack and no Energy Star certification. The price tier is our estimate, so check it, and the tub material." },
+      why: "Retailers list it at about $600 to $680 on sale against a regular price near $950. Reviewed lists 13 place settings, 47 dBA, a third rack and no Energy Star certification." },
     { name: "Bosch 500 Series SHP65CM5N", facts: { thirdrack: true, quiet: true }, tier: "mid", form: "stainless", checked: "2026-11",
-      why: "Tom's Guide lists 16 place settings, a 44 dB claim, a stainless tub and Energy Star, but its tester measured 47 to 50 dB. The price tier is our estimate, so check it." },
+      why: "Tom's Guide lists 16 place settings, a 44 dB claim, a stainless tub and Energy Star, but its tester measured 47 to 50 dB. Retailers list it at about $990 to $1,250, and Bosch lists a newer SHP65DM5N at $1,249, so check which model is in stock." },
     { name: "Samsung Bespoke DW90F89P0USR", facts: { thirdrack: true, quiet: true }, tier: "upper", form: "stainless", checked: "2026-11",
-      why: "Reviewed lists 16 place settings, 38 dBA, a stainless tub, a third rack and Wi-Fi. The price tier is our estimate, so check the live price." }
+      why: "Reviewed lists 16 place settings, 38 dBA, a stainless tub, a third rack and Wi-Fi. Samsung lists it at $1,399 and has sold it for about $1,000 during promotions." }
   ]
 };

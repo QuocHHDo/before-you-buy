@@ -143,7 +143,7 @@ window.SITE_DATA = {
   ],
 
   picksListed: "2026-11",
-  factsNote: "Must-have checks use reviewer and listing data, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers for models without a confirmed price are estimates.",
+  factsNote: "Must-have checks use reviewer and listing data, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers follow list prices, and sale prices can run $100 or more lower.",
   picksNote: "A short list of well-reviewed vacuums. Models and prices change, so use these to learn what to look for and verify the current price, battery and filter costs.",
   picks: [
     { name: "Tineco Pure ONE S11", facts: { runtime40: true }, tier: "budget", form: "cordless", checked: "2026-11",
@@ -155,10 +155,10 @@ window.SITE_DATA = {
     { name: "Tineco GoStation Smart", facts: { runtime40: true }, tier: "mid", form: "cordless", checked: "2026-11",
       why: "Savedelete lists it at $350 with 42 minutes. It comes with a dock. Check the battery's replacement price." },
     { name: "Shark PowerDetect HZ4002", facts: {}, tier: "mid", form: "corded", checked: "2026-11",
-      why: "Consumer Reports' pick of the year for top stick vacuum, rated best of all the sticks it tested. It's corded, so there's no battery to wear out. The price tier is our estimate, so check it." },
+      why: "Consumer Reports' pick of the year for top stick vacuum, rated best of all the sticks it tested. It's corded, so there's no battery to wear out. Shark lists it at $329.99 and sells it for about $200 to $230 on sale." },
     { name: "Dyson V15 Detect", facts: { battery: true }, tier: "upper", form: "cordless", checked: "2026-11",
-      why: "Vacuum Wars' premium pick. Choice says a new Dyson battery can cost up to $199. The price tier is our estimate, so check it." },
+      why: "Vacuum Wars' premium pick. Choice says a new Dyson battery can cost up to $199. Retailers list it at $649 to $749, and deals have taken it to about $500." },
     { name: "Samsung Bespoke AI Jet Ultra", facts: { runtime40: true }, tier: "upper", form: "cordless", checked: "2026-11",
-      why: "Consumer Reports measured a 52-minute run time with a 5-hour charge. The price tier is our estimate, so check it and whether the battery can be replaced." }
+      why: "Consumer Reports measured a 52-minute run time with a 5-hour charge. Samsung lists it at $1,099.99 and has cut it to about $900. Check whether the battery can be replaced." }
   ]
 };

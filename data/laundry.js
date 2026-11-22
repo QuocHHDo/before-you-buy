@@ -128,7 +128,7 @@ window.SITE_DATA = {
   brandRows: [
     { label: "Examples", cells: ["WM4000HWA with DLEX4000W, the heat pump laundry center WKHC252HWA", "TR5 top-load washer with DR5 dryer", "Samsung Bespoke and Smart sets, Electrolux, Whirlpool, GE"] },
     { label: "What stands out", cells: ["Consumer Reports says LG models are prominent among its top-rated front-loaders, with excellent performance, efficiency and reliability ratings, and that its best HE top-loaders are all LG", "Designbeep says they use mechanical controls and commercial-grade parts, designed to last around 25 years", "Consumer Reports' brand survey also praised Samsung, Electrolux, Whirlpool and GE"] },
-    { label: "Watch out for", cells: ["Model numbers differ in capacity and dryer type, so check each one", "Designbeep lists a 3.2 cubic foot TR5 washer, which is small, and the price tier here is our estimate", "A customer-review roundup on AOL reported that one smart Whirlpool front-loader lost Wi-Fi constantly"] }
+    { label: "Watch out for", cells: ["Model numbers differ in capacity and dryer type, so check each one", "Designbeep lists a 3.2 cubic foot TR5 washer, which is small, and the pair runs about $2,600 at retailers", "A customer-review roundup on AOL reported that one smart Whirlpool front-loader lost Wi-Fi constantly"] }
   ],
   brandVerdict: "Check the washer type, the dryer type and both capacities before the brand. The cheapest pair can cost more over time, and a well-reviewed machine in the wrong size won't fit your laundry.",
 
@@ -147,7 +147,7 @@ window.SITE_DATA = {
   picksNote: "A short list of well-reviewed washer and dryer pairs. Models and prices change, so use these to learn what to look for and verify the model number, capacity and current price.",
   picks: [
     { name: "Insignia NS-TWM35W1 washer and NS-TDRE67W1 dryer", facts: {}, tier: "budget", form: "topload", checked: "2026-11",
-      why: "PopSci's best-budget pick, with a physical knob and no Wi-Fi. The washer holds 3.7 cubic feet. The price tier is our estimate, so check it." },
+      why: "PopSci's best-budget pick, with a physical knob and no Wi-Fi. Best Buy sells the washer and the dryer at about $400 each on sale. The washer holds 3.7 cubic feet, and the dryer's cord and vent kit are sold separately." },
     { name: "LG laundry center WKHC252HWA", facts: { heatpump: true, stackable: true }, tier: "budget", form: "frontload", checked: "2026-11",
       why: "Abt lists it at $1,449 with a 5.0 cubic foot front-load washer and a 7.8 cubic foot ventless heat pump dryer in one stack. Check the 120V and 240V power needs and the current price." },
     { name: "LG WM4000HWA washer with DLEX4000W dryer", facts: { heatpump: false }, tier: "mid", form: "frontload", checked: "2026-11",
@@ -155,10 +155,10 @@ window.SITE_DATA = {
     { name: "LG WT6100CW washer with DLE6100W dryer", facts: {}, tier: "mid", form: "topload", checked: "2026-11",
       why: "Quartz lists the set at $1,500, and says the washer's smaller 4.3 cubic foot capacity keeps the price down. Check the dryer type and your space." },
     { name: "LG smart top-load washer with smart gas dryer", facts: { heatpump: false, stackable: false }, tier: "mid", form: "topload", checked: "2026-11",
-      why: "This Old House lists a 5.5 cubic foot washer and 7.3 cubic foot gas dryer, Energy Star certified and not stackable. The price tier is our estimate, so check it and that you have a gas line." },
+      why: "This Old House lists a 5.5 cubic foot washer and 7.3 cubic foot gas dryer, Energy Star certified and not stackable. We couldn't confirm a set price. One club retailer lists LG 7.3 cubic foot gas dryers alone at about $700 to $950, so the mid tier is our estimate. Check that you have a gas line." },
     { name: "LG WM6500HWA washer with DLEX6500W dryer", facts: {}, tier: "upper", form: "frontload", checked: "2026-11",
       why: "Quartz lists the set at $2,600 with Energy Star certification. A fit for large households. Check both capacities and whether you need the size." },
     { name: "Speed Queen TR5 washer with DR5 dryer", facts: {}, tier: "upper", form: "topload", checked: "2026-11",
-      why: "Designbeep says it uses mechanical controls and is designed to last around 25 years, but lists a 3.2 cubic foot washer. The price tier is our estimate, so check it and the capacity." }
+      why: "Designbeep says it uses mechanical controls and is designed to last around 25 years, but retailers list a 3.2 cubic foot washer, which is small. Retailers list the TR5 washer near $1,230 and the DR5 dryer at $1,330 to $1,500, so about $2,600 for the pair. Check the capacity." }
   ]
 };

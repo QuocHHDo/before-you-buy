@@ -143,7 +143,7 @@ window.SITE_DATA = {
   ],
 
   picksListed: "2026-11",
-  factsNote: "Door dispenser and depth checks use retailer, reviewer and roundup listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers for models without a confirmed price are estimates.",
+  factsNote: "Door dispenser and depth checks use retailer, reviewer and roundup listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers follow regular prices, and sale prices can run several hundred dollars lower.",
   picksNote: "A short list of well-reviewed refrigerators. Models and prices change, so use these to learn what to look for and verify the model number, depth and current price.",
   picks: [
     { name: "Samsung RT70F18LRSR top-freezer", facts: {}, tier: "budget", form: "freezer", checked: "2026-11",
@@ -151,7 +151,7 @@ window.SITE_DATA = {
     { name: "Frigidaire ADA 18.3 cubic foot top-freezer", facts: {}, tier: "budget", form: "freezer", checked: "2026-11",
       why: "Abt lists the 30-inch stainless model at $699. Check the ice maker and the exact depth." },
     { name: "Hisense HRB171N6ASE bottom-freezer", facts: { dispenser: false }, tier: "budget", form: "freezer", checked: "2026-11",
-      why: "Reviewed's best-value bottom-freezer, with no water dispenser and no smart features. The price tier is our estimate, so check it." },
+      why: "Reviewed's best-value bottom-freezer, with no water dispenser and no smart features. Reviewed says it needs calibration but holds steady temperatures. Lowe's lists it at $1,099, and deals have run $499 to $649." },
     { name: "LG LRFLC2706S counter-depth French-door", facts: { dispenser: false, counterdepth: true }, tier: "mid", form: "frenchdoor", checked: "2026-11",
       why: "Abt lists it as a 26.5 cubic foot counter-depth model, and one roundup lists it at $1,797 with an internal dispenser. Check the price, since listings vary." },
     { name: "GE GNE27JYMFS French-door", facts: {}, tier: "mid", form: "frenchdoor", checked: "2026-11",

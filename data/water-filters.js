@@ -157,10 +157,10 @@ window.SITE_DATA = {
     { name: "Waterdrop PT-07B", facts: { lead: false, pfas: false }, tier: "budget", form: "pitcher", checked: "2026-11",
       why: "Water Filter Guru says it costs $0.05 per gallon but is certified only to NSF/ANSI 42, so no health claims. Another listing says 42 and 372, so verify before relying on it." },
     { name: "Frizzlife SK99", facts: {}, tier: "mid", form: "undersink", checked: "2026-11",
-      why: "Listed as certified to NSF/ANSI 42 and 53 with a 0.5 micron filter. The price tier is our estimate, so check the lead and PFAS claims and the price." },
-    { name: "Waterdrop 10UA", facts: { lead: false, pfas: false }, tier: "mid", form: "undersink", checked: "2026-11",
-      why: "Listed as NSF/ANSI 42 certified, so it covers taste and not health claims. The price tier is our estimate, so check it." },
+      why: "Listed as certified to NSF/ANSI 42 and 53 with a 0.5 micron filter. Frizzlife lists it at $125.99, now $106.99. Some listings add other certifications, so check the lead and PFAS claims." },
+    { name: "Waterdrop 10UA", facts: {}, tier: "budget", form: "undersink", checked: "2026-11",
+      why: "The system lists at about $45 to $52, and replacement filters about $27 for 8,000 gallons. One listing says NSF/ANSI 42 only, while others claim lead and PFAS reduction, so confirm the certification before relying on it." },
     { name: "APEC ROES-50", facts: {}, tier: "upper", form: "undersink", checked: "2026-11",
-      why: "A tank-based RO system listed as NSF/ANSI 58 certified. Replacement filters and membrane run $100 to $200 a year for most RO systems. The price tier is our estimate, so check it." }
+      why: "A tank-based RO system listed as NSF/ANSI 58 certified. Replacement filters and membrane run $100 to $200 a year for most RO systems. It lists at about $200 to $230, below the $350 and up systems Consumer Reports tested, and sits in this tier by system type, not price." }
   ]
 };

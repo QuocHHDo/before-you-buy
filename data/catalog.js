@@ -29,7 +29,8 @@ window.BYB_CATALOG = {
       { id: "tires", name: "Car tires", short: "Tires", href: "tire.html", blurb: "Date codes, the winter snowflake, and install fees." },
       { id: "vacuums", name: "Vacuum cleaners", short: "Vacuums", href: "vacuum.html", blurb: "Real run time, battery swaps, and filter costs." },
       { id: "water-filters", name: "Water filters", short: "Filters", href: "water-filter.html", blurb: "What NSF numbers cover, and what refills cost." },
-      { id: "security-cameras", name: "Security cameras", short: "Cameras", href: "security-camera.html", blurb: "Subscriptions, local storage, and battery or solar." }
+      { id: "security-cameras", name: "Security cameras", short: "Cameras", href: "security-camera.html", blurb: "Subscriptions, local storage, and battery or solar." },
+      { id: "laundry", name: "Washers and dryers", short: "Laundry", href: "laundry.html", blurb: "Front or top load, heat pump dryers, and real capacity." }
     ]}
   ]
 };

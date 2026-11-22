@@ -34,7 +34,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$200–500",
-      adds: "Mesh kits and tri-band routers with more range. Prices in this range are mostly estimates, since roundups list few mesh prices.",
+      adds: "Mesh kits and tri-band routers with more range. Netgear lists the Orbi 370 3-pack at $349.99 list, often $289.99, and TP-Link's Deco BE63 2-pack lists at $349.99, often $250 to $300.",
       missing: "Free extras. Consumer Reports says security and parental controls often move into a paid plan.",
       bestFor: "A bigger home or one with dead zones.",
       badge: "Sweet spot"
@@ -44,7 +44,7 @@ window.SITE_DATA = {
       value: 0.97,
       name: "Upper",
       range: "$500+",
-      adds: "Top speeds and big coverage. One roundup lists the TP-Link Deco BE85 3-pack at $899, and another lists a Netgear Orbi 970 2-pack at $1,300.",
+      adds: "Top speeds and big coverage. The Asus RT-BE96U lists at $629.99 to $700, and one roundup lists the TP-Link Deco BE85 3-pack at $899.",
       missing: "A faster internet plan. ExpressVPN says that at 100 to 300 Mbps you won't see the benefit of Wi-Fi 7 or tri-band.",
       bestFor: "Multi-gig internet, a large house or heavy gaming.",
       badge: "Paying for polish"
@@ -129,7 +129,7 @@ window.SITE_DATA = {
   brandRows: [
     { label: "Examples", cells: ["Archer BE3600, Archer AXE75, Deco BE63, Deco XE75", "Orbi 370 series, Nighthawk RS700S, eero Pro 7", "RT-BE96U, ZenWiFi BE5000 Pro"] },
     { label: "What stands out", cells: ["CNET says TP-Link models dominated its lab tests and best list for value", "CNET says the Nighthawk RS700S was the fastest Wi-Fi 7 router it tested, and RTINGS says the eero Max 7 was the fastest it tested", "One roundup says the RT-BE96U needs no subscription and has a three-year warranty"] },
-    { label: "Watch out for", cells: ["TechRadar says some Deco BE63 features need a subscription. One roundup says the TP-Link routers it tested lack 6 GHz radios", "Netgear's June 2026 advisory lists older Orbi and Nighthawk models as end-of-support. eero's advanced security needs a paid plan", "The RT-BE96U is not cheap, and its price tier here is our estimate"] }
+    { label: "Watch out for", cells: ["TechRadar says some Deco BE63 features need a subscription. One roundup says the TP-Link routers it tested lack 6 GHz radios", "Netgear's June 2026 advisory lists older Orbi and Nighthawk models as end-of-support. eero's advanced security needs a paid plan", "The RT-BE96U is not cheap, listing at $629.99 to $700"] }
   ],
   brandVerdict: "Home size, your internet speed and the 6 GHz band matter more than brand. Then check fees and how long the maker keeps updating your exact model.",
 
@@ -144,7 +144,7 @@ window.SITE_DATA = {
   ],
 
   picksListed: "2026-11",
-  factsNote: "Band and subscription checks use maker, retailer and reviewer listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices move with sales, and tiers for models without a confirmed price are estimates.",
+  factsNote: "Band and subscription checks use maker, retailer and reviewer listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices come from maker and retailer pages and move a lot with sales.",
   picksNote: "A short list of well-reviewed routers and mesh kits. Models and prices change, so use these to learn what to look for and verify the model, bands and current price.",
   picks: [
     { name: "TP-Link Archer BE3600", facts: { sixghz: false }, tier: "budget", form: "router", checked: "2026-11",
@@ -153,16 +153,16 @@ window.SITE_DATA = {
       why: "CNET lists it at $127 as the fastest Wi-Fi 6E router in its tests, and another roundup lists $169. It's a tri-band Wi-Fi 6E router." },
     { name: "TP-Link Archer BE9700", facts: {}, tier: "budget", form: "router", checked: "2026-11",
       why: "Tom's Hardware names it its best Wi-Fi router for most people and says it costs under $200. Check the bands and whether you need a 6 GHz radio." },
-    { name: "Netgear Orbi 370 series mesh", facts: { sixghz: false, nosub: false }, tier: "mid", form: "mesh", checked: "2026-11",
-      why: "TechRadar lists it as dual-band Wi-Fi 7 and its best budget mesh. Netgear sells paid Armor security. The price tier is our estimate, so check it." },
+    { name: "Netgear Orbi 370 series mesh", facts: { sixghz: false }, tier: "mid", form: "mesh", checked: "2026-11",
+      why: "Netgear lists the 3-pack at $349.99, often $289.99, and Engadget says it is dual-band with no 6 GHz. Sources disagree on which security and parental features are free, since Netgear also sells paid Armor, so check before relying on either." },
     { name: "TP-Link Deco XE75 mesh", facts: { sixghz: true }, tier: "mid", form: "mesh", checked: "2026-11",
-      why: "Tom's Guide calls it its top Wi-Fi 6E mesh pick, an affordable way to remove dead zones, and says it has no multi-gig ports. The price tier is our estimate." },
+      why: "Tom's Guide calls it its top Wi-Fi 6E mesh pick and says it has no multi-gig ports. TP-Link lists the 3-pack at $349.99, often $230 to $280." },
     { name: "TP-Link Deco BE63 mesh", facts: { nosub: false }, tier: "mid", form: "mesh", checked: "2026-11",
-      why: "TechRadar and RTINGS both name it their best mesh system, and TechRadar says some features need a subscription. The price tier is our estimate, so check it." },
+      why: "TechRadar and RTINGS both name it their best mesh system, and TechRadar says some features need a subscription. The 2-pack lists at $349.99 and often sells for $250 to $300, though older reviews cite $550, so prices have fallen." },
     { name: "Asus RT-BE96U", facts: { nosub: true }, tier: "upper", form: "router", checked: "2026-11",
-      why: "Tom's Guide keeps it in its top spot, and one roundup says it needs no subscription and has a three-year warranty. The price tier is our estimate, so check it." },
+      why: "Tom's Guide keeps it in its top spot, and one roundup says it needs no subscription and has a three-year warranty. Tom's Guide lists $700, while Best Buy lists $541.99 and sales have gone near $436." },
     { name: "eero Pro 7 mesh", facts: { nosub: false }, tier: "upper", form: "mesh", checked: "2026-11",
-      why: "A roundup lists it as easiest to set up, with five Ethernet ports on the node. Advanced security needs eero Plus. The price tier is our estimate, so check it." },
+      why: "A roundup lists it as easiest to set up, with five Ethernet ports on the node. Advanced security needs eero Plus. eero lists the 2-pack at $549.99 and the 3-pack at $799.99, with sales at $399.99 and $599.99." },
     { name: "TP-Link Deco BE85 mesh", facts: {}, tier: "upper", form: "mesh", checked: "2026-11",
       why: "One roundup lists a 3-pack at $899 and says it covers up to 8,000 square feet. Check the bands, ports and whether you need that coverage." }
   ]

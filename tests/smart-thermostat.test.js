@@ -46,9 +46,10 @@ check("no-C-wire need passes the Sensi, fails the Amazon, unknown on the Wyze", 
   assert.strictEqual(L.matchPick(pick("Amazon Smart Thermostat"), ["nocwire"])[0].state, "no");
   assert.strictEqual(L.matchPick(pick("Wyze Thermostat"), ["nocwire"])[0].state, "unknown");
 });
-check("sensor need passes the ecobee Premium, fails the T9, unknown on the Enhanced", () => {
+check("sensor need passes the ecobee Premium and the Nest, unknown on the T9 and the Enhanced", () => {
   assert.strictEqual(L.matchPick(pick("ecobee Smart Thermostat Premium"), ["sensor"])[0].state, "yes");
-  assert.strictEqual(L.matchPick(pick("Honeywell Home T9"), ["sensor"])[0].state, "no");
+  assert.strictEqual(L.matchPick(pick("Google Nest Learning Thermostat (4th gen)"), ["sensor"])[0].state, "yes");
+  assert.strictEqual(L.matchPick(pick("Honeywell Home T9"), ["sensor"])[0].state, "unknown");
   assert.strictEqual(L.matchPick(pick("ecobee Smart Thermostat Enhanced"), ["sensor"])[0].state, "unknown");
 });
 

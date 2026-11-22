@@ -1,5 +1,5 @@
 // Category content for the smart thermostat page. Same shape as the other guides.
-// Few roundups list prices, so many tiers are estimates and the cards say so.
+// Prices were re-checked against maker and retailer pages in November 2026.
 window.SITE_DATA = {
   category: "smart-thermostats",
   title: "Before you buy a smart thermostat",
@@ -34,7 +34,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$120–200",
-      adds: "Room sensors and sharper control. A roundup says the Honeywell T9 supports smart room sensors with a 200 foot range, and lists ecobee's Enhanced model with radar occupancy sensing. Prices in this tier are our estimates.",
+      adds: "Room sensors and sharper control. A roundup says the Honeywell T9 supports smart room sensors with a 200 foot range, and ecobee's Enhanced model lists at $199.99 on retailer pages.",
       missing: "Included sensors on some models. Sensors are sold separately for the Honeywell T9, per This Old House.",
       bestFor: "Homes with hot and cold rooms."
     },
@@ -43,7 +43,7 @@ window.SITE_DATA = {
       value: 0.97,
       name: "Upper",
       range: "$200+",
-      adds: "Learning, included sensors and system health monitoring. This Old House says the Nest Learning Thermostat comes with a room sensor and a System Health Monitor. Prices in this tier are our estimates.",
+      adds: "Learning, included sensors and system health monitoring. This Old House says the Nest Learning Thermostat comes with a room sensor and a System Health Monitor. Google lists it at $279.99, and ecobee lists its Premium at $259.99.",
       missing: "Proof that it saves more. Savings figures like up to 31 percent come from the makers, Google and ecobee.",
       bestFor: "Buyers who want the most automation and are happy to pay for it.",
       badge: "Paying for polish"
@@ -144,7 +144,7 @@ window.SITE_DATA = {
   ],
 
   picksListed: "2026-11",
-  factsNote: "C-wire and sensor checks use maker, retailer and reviewer listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Few roundups list prices, and tiers for models without a confirmed price are estimates.",
+  factsNote: "C-wire and sensor checks use maker, retailer and reviewer listings, not our own testing. A ? means we haven't confirmed that spec, so check before buying. Prices come from maker and retailer pages and move with sales.",
   picksNote: "A short list of well-reviewed smart thermostats. Models and prices change, so use these to learn what to look for and verify your system's compatibility before you buy.",
   picks: [
     { name: "Amazon Smart Thermostat", facts: { nocwire: false }, tier: "budget", form: "basic", checked: "2026-11",
@@ -154,16 +154,16 @@ window.SITE_DATA = {
     { name: "Google Nest Thermostat", facts: {}, tier: "budget", form: "basic", checked: "2026-11",
       why: "Consumer Reports lists $100 and says it doesn't support ventilation systems. Reviewed says one tester couldn't get a model working properly without a C-wire, so check the wiring." },
     { name: "Emerson Sensi ST55", facts: { nocwire: true }, tier: "budget", form: "basic", checked: "2026-11",
-      why: "Several roundups say it usually needs no C-wire and is privacy focused. The price tier is our estimate, so check it." },
-    { name: "Honeywell Home T9", facts: { sensor: false }, tier: "mid", form: "full", checked: "2026-11",
-      why: "One roundup says it supports smart room sensors with a 200 foot range and comes with a C-wire adapter. This Old House lists sensors as sold separately. The price tier is our estimate." },
+      why: "Home Depot lists $99 against a $129 list price and says no C-wire is needed for most systems. Check your wiring, since the pricier Sensi Touch models do need one." },
+    { name: "Honeywell Home T9", facts: {}, tier: "mid", form: "full", checked: "2026-11",
+      why: "Retailers list $169.99 to $209.99, with some versions including one room sensor and others selling sensors separately. Check which version you are buying. One roundup says a C-wire adapter is in the box." },
     { name: "ecobee Smart Thermostat Enhanced", facts: {}, tier: "mid", form: "full", checked: "2026-11",
-      why: "A roundup lists radar occupancy sensing, SmartSensor compatibility and a 4-inch display. Consumer Reports says it hasn't tested it but expects it to perform like the T9. The price tier is our estimate." },
+      why: "ecobee and retailers list $199.99, with an MSRP of $189.99 on the spec sheet. A roundup lists radar occupancy sensing and SmartSensor compatibility, and ecobee says it only supports accessories connected by one wire." },
     { name: "ecobee Smart Thermostat Premium", facts: { nocwire: false, sensor: true }, tier: "upper", form: "full", checked: "2026-11",
-      why: "Reviewed says it needs a C-wire but may work with a power extender, and lists HomeKit support. This Old House lists room sensors and an air quality monitor. The price tier is our estimate." },
+      why: "Reviewed says it needs a C-wire but may work with a power extender, and lists HomeKit support. ecobee lists it at $259.99, often on sale for $210 to $230. It includes a SmartSensor and an air quality monitor." },
     { name: "Google Nest Learning Thermostat (4th gen)", facts: { nocwire: true, sensor: true }, tier: "upper", form: "full", checked: "2026-11",
-      why: "This Old House lists a Nest Temperature Sensor in the box, and roundups list no C-wire in most homes. Heat pump and other systems may still need a wire. The price tier is our estimate." },
+      why: "Google lists $279.99 and often $239.99, with one Nest Temperature Sensor in the box. Roundups list no C-wire in most homes, but heat pump and other systems may still need one." },
     { name: "Honeywell Home X8S", facts: {}, tier: "upper", form: "full", checked: "2026-11",
-      why: "Reviewed calls it best for whole-home comfort control. The price tier is our estimate, so check the price, sensors and wiring needs." }
+      why: "Reviewed lists $219.99, or $249.99 with a room sensor. Best Buy says a C-wire is required. Reviewed calls it its pick for whole-home comfort control." }
   ]
 };

@@ -1,6 +1,6 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Eight guides: headphones, smartwatches, keyboards, mice, power banks, electric toothbrushes, air purifiers and robot vacuums.
+The questions you didn't know to ask before buying electronics. Eleven guides: headphones, TVs, smartwatches, keyboards, mice, SSDs, power banks, electric toothbrushes, air purifiers, video doorbells and robot vacuums.
 
 A static site with no build step: plain HTML, CSS and JS. Answers are saved in your browser (localStorage).
 
@@ -10,18 +10,18 @@ A static site with no build step: plain HTML, CSS and JS. Answers are saved in y
 guides.html           hub page listing every guide, grouped by theme
 index.html            headphones page (kept at the root so old shared links work)
 smartwatch.html, keyboard.html, mouse.html, charger.html,
-toothbrush.html, air-purifier.html, robot-vacuum.html
+toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-doorbell.html
                       one page per guide (same shell, different data file)
 nav.js                "All guides" menu, footer links and the hub list; reads data/catalog.js
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum
+tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
 data/toothbrushes.js  same shape for toothbrushes
 data/keyboards.js     same shape for keyboards
 data/mice.js          same shape for mice
-data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js
+data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js, tvs.js, ssds.js, video-doorbells.js
                       same shape for the other guides
 data/catalog.js       the list of guides and their themes (menu, hub and footer read this)
 ```

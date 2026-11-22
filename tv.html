@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Before You Buy: TVs</title>
+  <meta name="description" content="The questions you didn't know to ask before buying a TV: panel type, real refresh rates, HDMI ports, size, and smart TV tracking." />
+  <meta name="theme-color" content="#EEF1F3" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111417" media="(prefers-color-scheme: dark)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Before You Buy" />
+  <meta property="og:title" content="Before you buy a TV" />
+  <meta property="og:description" content="The questions you didn't know to ask. Get your price tier, must-have features, and what you can skip." />
+  <meta property="og:url" content="https://quochhdo.github.io/before-you-buy/tv.html" />
+  <meta property="og:image" content="https://quochhdo.github.io/before-you-buy/og-tv.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Before You Buy: a TV result card showing a price tier and must-have features." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#tool">Skip to the questions</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="guides.html">Before You Buy</a>
+      <div class="nav-right">
+        <a class="menu-btn" id="menu-btn" href="guides.html" aria-expanded="false" aria-controls="menu-panel">All guides</a>
+      </div>
+    </div>
+    <div class="menu-panel" id="menu-panel" role="navigation" aria-label="All guides" hidden></div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <h1 id="page-title">Before you buy a TV</h1>
+      <p class="tagline" id="page-tagline"></p>
+      <p class="hero-sub">A few questions, one at a time. Tap an answer to move on; each one shows what it changed, and your result builds as you go. Answers stay saved in this browser.</p>
+    </section>
+
+    <section id="tool" class="wrap tool" aria-label="TV finder">
+      <div class="stepper" id="stepper"></div>
+      <aside class="rail" id="rail" aria-live="polite" aria-label="Your result"></aside>
+    </section>
+
+    <nav class="wrap jump" aria-label="On this page">
+      <span class="jump-label">Learn the market</span>
+      <a href="#ladder">Price ladder</a>
+      <a href="#brand">Brand vs no-name</a>
+      <a href="#traps">Marketing traps</a>
+      <a href="#picks">All picks</a>
+    </nav>
+
+    <section id="ladder" class="wrap block" aria-labelledby="l-heading">
+      <h2 id="l-heading">Where spending more stops paying off</h2>
+      <p class="lede">Illustrative, not measured: how much each tier adds. Layout and switch feel matter more than price, and Hall-effect boards mostly help competitive players.</p>
+      <div class="ladder-chart" id="ladder-chart"></div>
+      <div class="ladder-cols" id="ladder-cols"></div>
+    </section>
+
+    <section id="brand" class="wrap block" aria-labelledby="b-heading">
+      <h2 id="b-heading">Brand vs no-name</h2>
+      <p class="lede" id="brand-verdict"></p>
+      <div class="table-scroll"><table class="brand-table" id="brand-table"></table></div>
+      <div class="brand-cards" id="brand-cards"></div>
+    </section>
+
+    <section id="traps" class="wrap block" aria-labelledby="t-heading">
+      <h2 id="t-heading">Marketing traps</h2>
+      <p class="lede">What the box says, and what it actually means.</p>
+      <dl class="traps" id="traps-list"></dl>
+    </section>
+
+    <section id="picks" class="wrap block" aria-labelledby="p-heading">
+      <h2 id="p-heading">Example picks</h2>
+      <p class="lede" id="picks-note"></p>
+      <div class="filters" id="pick-filters" role="group" aria-label="Filter by type"></div>
+      <div id="picks-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <nav class="footer-guides" id="footer-guides" aria-label="More guides"></nav>
+      <span id="last-checked"></span>
+      <button type="button" class="btn btn-quiet" id="reset-btn">Start over</button>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" id="mobile-bar" hidden>
+    <div class="mobile-bar-text" id="mobile-bar-text"></div>
+    <button type="button" class="btn btn-primary" id="mobile-bar-btn">See result</button>
+  </div>
+
+  <script src="data/tvs.js"></script>
+  <script src="data/catalog.js"></script>
+  <script src="nav.js"></script>
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

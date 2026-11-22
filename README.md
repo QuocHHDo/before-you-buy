@@ -1,6 +1,8 @@
 # Before You Buy
 
-The questions you didn't know to ask before buying electronics. Eleven guides: headphones, TVs, smartwatches, keyboards, mice, SSDs, power banks, electric toothbrushes, air purifiers, video doorbells and robot vacuums.
+The questions you didn't know to ask before buying electronics. Twelve guides: headphones, TVs, smartwatches, keyboards, mice, laptops, SSDs, power banks, electric toothbrushes, air purifiers, video doorbells and robot vacuums.
+
+Beyond the questions: compare any two picks side by side, search every guide's traps, questions and picks from the hub, and picks whose price check is over 90 days old show a "Price may have changed" badge.
 
 A static site with no build step: plain HTML, CSS and JS. Answers are saved in your browser (localStorage).
 
@@ -10,18 +12,22 @@ A static site with no build step: plain HTML, CSS and JS. Answers are saved in y
 guides.html           hub page listing every guide, grouped by theme
 index.html            headphones page (kept at the root so old shared links work)
 smartwatch.html, keyboard.html, mouse.html, charger.html,
-toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-doorbell.html
+toothbrush.html, air-purifier.html, robot-vacuum.html, tv.html, ssd.html, video-doorbell.html, laptop.html
                       one page per guide (same shell, different data file)
 nav.js                "All guides" menu, footer links and the hub list; reads data/catalog.js
 styles.css            all styling (light + dark mode)
 logic.js              pure recommendation + must-have matching (no DOM, unit tested)
 app.js                rendering (category-agnostic)
-tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell
+tests/*.test.js       example-buyer tests, one per guide: node tests/rules.test.js (headphones), toothbrush, keyboard, mouse, charger, smartwatch, air-purifier, robot-vacuum, tv, ssd, video-doorbell, laptop
+                      plus search.test.js, which fails if data/search-index.js is out of date
+search.js             site search on the hub page (reads data/search-index.js)
+data/search-index.js  generated; rebuild with: node tools/build-search-index.js
+tools/build-search-index.js  builds the search index from every data file
 data/headphones.js    all headphone content: questions, tiers, brand table, traps, picks
 data/toothbrushes.js  same shape for toothbrushes
 data/keyboards.js     same shape for keyboards
 data/mice.js          same shape for mice
-data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js, tvs.js, ssds.js, video-doorbells.js
+data/smartwatches.js, chargers.js, air-purifiers.js, robot-vacuums.js, tvs.js, ssds.js, video-doorbells.js, laptops.js
                       same shape for the other guides
 data/catalog.js       the list of guides and their themes (menu, hub and footer read this)
 ```
@@ -77,3 +83,7 @@ Only `picks` and `lastChecked` go stale. Each pick shows "Listed Nov 2026" (from
 2. Copy any category page (for example `keyboard.html`) to `<name>.html`, point it at the new data file, and update the title and meta tags. The nav comes from `nav.js`.
 3. Add the guide to `data/catalog.js` (pick a theme group, or add one). The menu, hub page and footer update on their own.
 4. Add an `og-<name>.png` and a `tests/<name>.test.js`.
+
+## After changing any guide data
+
+Run `node tools/build-search-index.js`, then every `tests/*.test.js`. When you verify a pick's price, set its `checked: "YYYY-MM"`; the badge appears once that date is over 90 days old.

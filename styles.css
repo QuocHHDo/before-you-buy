@@ -211,7 +211,7 @@ a { color: inherit; }
   position: sticky; top: 84px;
   background: var(--ink); color: var(--bg);
   border-radius: var(--radius-lg); padding: 24px;
-  --rail-muted: color-mix(in srgb, var(--bg) 62%, var(--ink));
+  --rail-muted: color-mix(in srgb, var(--bg) 82%, var(--ink));
   --rail-line: color-mix(in srgb, var(--bg) 18%, var(--ink));
   max-height: calc(100vh - 100px); overflow: auto;
 }
@@ -255,6 +255,7 @@ a { color: inherit; }
 .mp-name { font-weight: 700; }
 .mp-why { font-size: 14px; color: var(--rail-muted); line-height: 1.4; }
 .mp-link { font-size: 13px; font-weight: 600; color: var(--signal); margin-top: 4px; }
+.rail .mp-link { color: var(--bg); text-decoration: underline; text-underline-offset: 2px; }
 
 .rail-notes { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rail-line); font-size: 15px; }
 .rail-notes summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
@@ -365,6 +366,25 @@ a { color: inherit; }
 .pr-form { font-size: 13px; color: var(--muted); }
 .pr-why { margin: 0; color: var(--muted); font-size: 15px; }
 .pr-link { font-size: 14px; font-weight: 600; white-space: nowrap; text-underline-offset: 3px; }
+.pr-actions { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+.pr-compare {
+  font: inherit; font-size: 14px; font-weight: 600; padding: 6px 12px; min-height: 36px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
+}
+.pr-compare:hover { border-color: var(--ink); }
+.pr-compare.on { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.stale { color: var(--skip); font-weight: 600; }
+
+/* compare two picks */
+.compare { margin: 0 0 24px; padding: 16px 20px; border: 1.5px solid var(--ink); border-radius: var(--radius); }
+.compare[hidden] { display: none; }
+.cmp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.cmp-head h3 { margin: 0; font-size: 18px; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.cmp-table th, .cmp-table td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-top: 1px solid var(--line); }
+.cmp-table thead th { border-top: 0; font-size: 16px; }
+.cmp-table tbody th { font-weight: 600; color: var(--muted); width: 28%; }
+.cmp-table td { width: 36%; }
 
 /* footer */
 .site-footer { margin-top: 72px; border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 15px; }
@@ -391,7 +411,8 @@ a { color: inherit; }
   .pick-group { padding: 0 16px 4px; }
   .pick-row { grid-template-columns: 1fr auto; }
   .pr-why { grid-column: 1 / -1; grid-row: 2; }
-  .pr-link { grid-column: 2; grid-row: 1; }
+  .compare { padding: 12px 14px; }
+  .cmp-table { min-width: 460px; }
 }
 
 @media (max-width: 560px) {
@@ -556,3 +577,20 @@ a { color: inherit; }
 .footer-guides ul { display: flex; flex-wrap: wrap; gap: 4px 18px; }
 .footer-guides a { text-decoration: none; }
 .footer-guides a:hover { text-decoration: underline; }
+
+/* ---------- site search (hub page) ---------- */
+.search { margin: 8px 0 36px; max-width: 720px; }
+.search label { display: block; font-weight: 700; margin-bottom: 6px; }
+.search input {
+  width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border-radius: var(--radius);
+  border: 1.5px solid var(--ink); background: var(--bg); color: var(--ink);
+}
+.search-status { margin: 8px 0 0; font-size: 14px; color: var(--muted); min-height: 1.4em; }
+.search-results { list-style: none; margin: 0; padding: 0; }
+.search-results li { border-bottom: 1px solid var(--line); }
+.search-results a { display: block; padding: 12px 4px; text-decoration: none; color: var(--ink); }
+.search-results a:hover .sr-title { text-decoration: underline; text-underline-offset: 3px; }
+.sr-meta { display: block; font-size: 13px; color: var(--muted); }
+.sr-title { display: block; font-weight: 700; }
+.sr-body { display: block; font-size: 15px; color: var(--muted); }
+.search mark { background: var(--signal-soft); color: inherit; border-radius: 3px; padding: 0 2px; }

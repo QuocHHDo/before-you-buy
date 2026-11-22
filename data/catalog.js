@@ -10,6 +10,7 @@ window.BYB_CATALOG = {
     { id: "computer", name: "Computer and power", items: [
       { id: "keyboards", name: "Keyboards", href: "keyboard.html", blurb: "Switch type, noise, and what wireless really costs." },
       { id: "mice", name: "Mice", href: "mouse.html", blurb: "Hand size and comfort before sensor specs." },
+      { id: "laptops", name: "Laptops", href: "laptop.html", blurb: "RAM you can't add later, battery claims, and rising prices." },
       { id: "ssds", name: "SSDs", href: "ssd.html", blurb: "Peak speeds, fake drives, and why prices have jumped." },
       { id: "chargers", name: "Power banks", href: "charger.html", blurb: "Real capacity, real output, and what you can fly with." }
     ]},

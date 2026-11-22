@@ -200,7 +200,7 @@
             {
               type: "button",
               class: "seg" + (answers[q.id] ? " done" : "") + (i === step ? " current" : ""),
-              "aria-label": "Question " + (i + 1) + ": " + q.ask + (answers[q.id] ? " (answered)" : ""),
+              "aria-label": q.short + ": question " + (i + 1) + " of " + Q.length + ", " + q.ask + (answers[q.id] ? " (answered)" : ""),
               "aria-current": i === step ? "step" : false,
               onclick: () => goTo(i),
             },
@@ -516,6 +516,20 @@
     return p.checked ? "Price checked " + fmt(p.checked) : "Listed " + fmt(D.picksListed);
   }
 
+  // A price check older than about three months is flagged, since prices drift.
+  const STALE_DAYS = 90;
+  function isStale(p, now) {
+    const ym = p.checked || D.picksListed;
+    if (!ym) return false;
+    const [y, m] = ym.split("-").map(Number);
+    return ((now || new Date()) - new Date(y, m - 1, 1)) / 86400000 > STALE_DAYS;
+  }
+  function staleBadge(p) {
+    return isStale(p)
+      ? h("span", { class: "stale", title: "This price check is over three months old" }, "Price may have changed")
+      : null;
+  }
+
   function reviewLink(name) {
     return "https://www.google.com/search?q=" + encodeURIComponent(name + " review");
   }
@@ -527,7 +541,7 @@
       h("span", { class: "mp-name" }, p.name),
       h("span", { class: "mp-why" }, p.why),
       checkChips(p.checks),
-      h("span", { class: "mp-foot" }, h("span", { class: "mp-link" }, "Find reviews"), h("span", { class: "mp-date" }, pickDate(p)))
+      h("span", { class: "mp-foot" }, h("span", { class: "mp-link" }, "Find reviews"), h("span", { class: "mp-date" }, pickDate(p), staleBadge(p) && " · ", staleBadge(p)))
     );
   }
 
@@ -701,11 +715,27 @@
                   { class: "pr-main" },
                   h("span", { class: "pr-name" }, p.name),
                   h("span", { class: "pr-form" }, D.forms[p.form]),
-                  h("span", { class: "pr-date" }, pickDate(p))
+                  h("span", { class: "pr-date" }, pickDate(p), staleBadge(p) && " · ", staleBadge(p)),
+                h(
+                  "div",
+                  { class: "pr-actions" },
+                  h("a", { class: "pr-link", href: reviewLink(p.name), target: "_blank", rel: "noopener" }, "Find reviews"),
+                  h(
+                    "button",
+                    {
+                      type: "button",
+                      class: "pr-compare" + (compare.includes(p.name) ? " on" : ""),
+                      "aria-pressed": compare.includes(p.name) ? "true" : "false",
+                      "aria-label": (compare.includes(p.name) ? "Selected for comparison: " : "Compare ") + p.name,
+                      "data-cmp": p.name,
+                      onclick: () => toggleCompare(p.name),
+                    },
+                    compare.includes(p.name) ? "Selected" : "Compare"
+                  )
+                )
                 ),
                 h("p", { class: "pr-why" }, p.why),
-                checkChips(p.checks),
-                h("a", { class: "pr-link", href: reviewLink(p.name), target: "_blank", rel: "noopener" }, "Find reviews")
+                checkChips(p.checks)
               )
             )
           )
@@ -714,6 +744,83 @@
     if (!kids.length) kids.push(h("p", { class: "muted" }, "No picks of this type yet."));
     if (needs.length) kids.push(h("p", { class: "facts-note" }, D.factsNote));
     document.getElementById("picks-list").replaceChildren(...kids);
+    renderCompare();
+  }
+
+  // ---------- compare two picks ----------
+  let compare = []; // pick names, at most two
+  function toggleCompare(name) {
+    const i = compare.indexOf(name);
+    if (i >= 0) compare.splice(i, 1);
+    else {
+      compare.push(name);
+      if (compare.length > 2) compare.shift();
+    }
+    renderPicks();
+    const btn = [...document.querySelectorAll("[data-cmp]")].find((b) => b.dataset.cmp === name);
+    if (btn) btn.focus({ preventScroll: true });
+    if (compare.length === 2) {
+      const el = document.getElementById("compare");
+      if (el) el.scrollIntoView({ behavior: smooth(), block: "nearest" });
+    }
+  }
+
+  function renderCompare() {
+    let box = document.getElementById("compare");
+    if (!box) {
+      box = h("div", { id: "compare", class: "compare", "aria-live": "polite" });
+      document.getElementById("picks-list").before(box);
+    }
+    const picks = compare.map((n) => D.picks.find((p) => p.name === n)).filter(Boolean);
+    if (!picks.length) {
+      box.replaceChildren();
+      box.hidden = true;
+      return;
+    }
+    box.hidden = false;
+    const head = h(
+      "div",
+      { class: "cmp-head" },
+      h("h3", {}, picks.length === 2 ? "Side by side" : "Pick one more to compare"),
+      h("button", { type: "button", class: "link-btn", onclick: () => { compare = []; renderPicks(); } }, "Clear")
+    );
+    if (picks.length < 2) {
+      box.replaceChildren(head, h("p", { class: "muted" }, picks[0].name + " is selected. Choose Compare on another pick."));
+      return;
+    }
+    const needIds = Object.keys(D.needDefs);
+    const tier = (p) => D.tiers.find((t) => t.id === p.tier);
+    const rows = [
+      ["Type", (p) => D.forms[p.form]],
+      ["Price tier", (p) => tier(p).name + ", " + tier(p).range],
+      ["Price check", (p) => pickDate(p)],
+      ["Why it's here", (p) => p.why],
+    ];
+    const checkRows = needIds.map((id) => [
+      D.needDefs[id].label,
+      (p) => checkChips(L.matchPick(p, [id])),
+    ]);
+    box.replaceChildren(
+      head,
+      h(
+        "div",
+        { class: "table-scroll" },
+        h(
+          "table",
+          { class: "cmp-table" },
+          h("caption", { class: "visually-hidden" }, "Comparing " + picks[0].name + " and " + picks[1].name),
+          h("thead", {}, h("tr", {}, h("td", {}), picks.map((p) => h("th", { scope: "col" }, p.name)))),
+          h(
+            "tbody",
+            {},
+            [...rows, ...checkRows].map(([label, fn]) =>
+              h("tr", {}, h("th", { scope: "row" }, label), picks.map((p) => h("td", {}, fn(p))))
+            )
+          )
+        )
+      ),
+      needIds.length ? h("p", { class: "facts-note" }, D.factsNote) : null
+    );
   }
 
   // ---------- orchestration ----------

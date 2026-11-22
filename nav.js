@@ -37,6 +37,7 @@
       sec.appendChild(ul);
       panel.appendChild(sec);
     });
+    panel.appendChild(el("a", { href: "guides.html#search", "class": "menu-all", text: "Search all guides" }));
     panel.appendChild(el("a", { href: "guides.html", "class": "menu-all", text: "Browse all guides" }));
 
     function setOpen(open) {

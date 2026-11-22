@@ -40,6 +40,12 @@
   <main class="wrap hero">
     <h1>Before you buy.</h1>
     <p class="lede">Pick a product. Answer a few questions. Get your price tier, the features worth having, and what you can skip.</p>
+    <form class="search" id="search-form" role="search" aria-label="Search all guides">
+      <label for="search-input">Search every guide</label>
+      <input id="search-input" type="search" placeholder="Try: monthly fee, 16GB, filter cost" autocomplete="off" />
+      <p class="search-status" id="search-status" role="status"></p>
+      <ul class="search-results" id="search-results"></ul>
+    </form>
     <div id="hub"></div>
   </main>
 
@@ -51,5 +57,7 @@
 
   <script src="data/catalog.js"></script>
   <script src="nav.js"></script>
+  <script src="data/search-index.js"></script>
+  <script src="search.js"></script>
 </body>
 </html>

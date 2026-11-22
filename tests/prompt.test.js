@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 global.window = {};
 const dataDir = path.join(__dirname, "..", "data");
-const files = fs.readdirSync(dataDir).filter((f) => f.endsWith(".js") && !["catalog.js", "search-index.js"].includes(f));
+const files = fs.readdirSync(dataDir).filter((f) => f.endsWith(".js") && !["catalog.js", "search-index.js", "icons.js"].includes(f));
 
 let pass = 0;
 const fail = [];

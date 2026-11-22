@@ -68,6 +68,18 @@
     foot.appendChild(ul2);
   }
 
+  function hubName(it) {
+    var n = el("span", { "class": "hub-name" });
+    var inner = window.BYB_ICONS && window.BYB_ICONS[it.id];
+    if (inner) {
+      var ic = el("span", { "class": "hub-icon", "aria-hidden": "true" });
+      ic.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">' + inner + "</svg>";
+      n.appendChild(ic);
+    }
+    n.appendChild(document.createTextNode(it.name));
+    return n;
+  }
+
   // hub page: filter chips plus a card grid per group
   var hub = document.getElementById("hub");
   if (hub) {
@@ -92,7 +104,7 @@
       var ul3 = el("ul", { "class": "hub-list" });
       g.items.forEach(function (it) {
         ul3.appendChild(el("li", {}, el("a", { href: it.href },
-          el("span", { "class": "hub-name", text: it.name }),
+          hubName(it),
           el("span", { "class": "hub-blurb", text: it.blurb }))));
       });
       sec.appendChild(ul3);

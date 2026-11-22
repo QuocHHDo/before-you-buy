@@ -10,7 +10,7 @@ function build() {
   const items = global.window.BYB_CATALOG.groups.flatMap((g) => g.items);
   const out = [];
   for (const it of items) {
-    const file = fs.readdirSync(path.join(root, "data")).filter((f) => f.endsWith(".js") && !["catalog.js", "search-index.js"].includes(f))
+    const file = fs.readdirSync(path.join(root, "data")).filter((f) => f.endsWith(".js") && !["catalog.js", "search-index.js", "icons.js"].includes(f))
       .find((f) => {
         global.window = {};
         delete require.cache[require.resolve(path.join(root, "data", f))];

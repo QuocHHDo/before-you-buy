@@ -581,7 +581,8 @@ a { color: inherit; }
 }
 .hub-list a:hover { border-color: var(--ink); }
 .hub-name { font-weight: 700; font-size: 18px; line-height: 1.3; }
-.hub-name { padding-right: 22px; }
+.hub-name { padding-right: 22px; display: flex; align-items: center; gap: 10px; }
+.hub-icon { flex: none; display: inline-flex; color: var(--ink); }
 .hub-list a::after { content: "\203A"; position: absolute; right: 18px; top: 13px; font-size: 22px; line-height: 1; color: var(--muted); }
 .hub-list a:hover::after { color: var(--ink); }
 .hub-blurb { color: var(--muted); font-size: 16px; line-height: 1.45; }

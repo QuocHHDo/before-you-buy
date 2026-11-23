@@ -26,7 +26,7 @@ window.SITE_DATA = {
       value: 0.8,
       name: "Budget",
       range: "Under $700",
-      adds: "A solid everyday laptop. Tom's Guide's best budget laptop, the MacBook Neo, is $599, and its best budget Windows laptop, the Dell XPS 13, is just under $700.",
+      adds: "A solid everyday laptop. Tom's Guide's best budget laptop, the MacBook Neo, is $699 list (about $650 on sale), and its best budget Windows laptop, the Dell XPS 13, starts at $699.",
       missing: "Lots of RAM and storage, a bright screen and the longest battery life. Several cheap models carry only 8GB.",
       bestFor: "Web, documents, school and video calls.",
       badge: "Best value"
@@ -36,7 +36,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$700–1,300",
-      adds: "16GB of RAM and 512GB of storage as standard, as on the MacBook Air M5 at $1,099, or a business laptop with RAM you can upgrade.",
+      adds: "16GB of RAM and 512GB of storage as standard, as on the MacBook Air M5 (about $1,299 list, $1,099 on sale), or a business laptop with RAM you can upgrade.",
       missing: "The brightest OLED screens and the thinnest, lightest builds.",
       bestFor: "Most people who use a laptop every day for years."
     },
@@ -154,7 +154,7 @@ window.SITE_DATA = {
   picksNote: "A short list of well-reviewed laptops. Laptops change every few months, so use these to learn what to look for and verify the current model and price.",
   picks: [
     { name: "Apple MacBook Neo", facts: { ram16: false, upgrade: false }, tier: "budget", form: "mac", checked: "2026-11",
-      why: "Tom's Guide's best budget laptop at $599. It has 8GB of memory and 256GB of storage, and neither can be upgraded." },
+      why: "Tom's Guide's best budget laptop. Apple raised the price from $599 to $699 in June 2026, per Tom's Hardware, and Amazon has the 256GB model at $649.99 for Black Friday. It has 8GB of memory and 256GB of storage, and neither can be upgraded." },
     { name: "Asus Chromebook CX15", facts: {}, tier: "budget", form: "chromebook", checked: "2026-11",
       why: "Tom's Guide's best budget Chromebook at $269. PCWorld praises the keyboard and battery life but calls the screen mediocre and the fans noisy." },
     { name: "Asus Chromebook Plus CX34", facts: {}, tier: "budget", form: "chromebook", checked: "2026-11",
@@ -162,15 +162,15 @@ window.SITE_DATA = {
     { name: "ASUS Vivobook 16 M1605", facts: {}, tier: "budget", form: "windows", checked: "2026-11",
       why: "RTINGS' best laptop under $600. Choose a configuration with at least 16GB of RAM and a 512GB SSD, since specs vary by version." },
     { name: "Dell XPS 13 (2026)", facts: {}, tier: "budget", form: "windows", checked: "2026-11",
-      why: "Tom's Guide's best budget Windows laptop, at just under $700, with few sacrifices. Its webcam is poor." },
+      why: "Tom's Guide's best budget Windows laptop, at $699 for the 8GB model and $899 for 16GB, per Tom's Hardware, with few sacrifices. Its webcam is poor." },
     { name: "Apple MacBook Air 13-inch (M5)", facts: { ram16: true, upgrade: false, longbattery: true }, tier: "mid", form: "mac", checked: "2026-11",
-      why: "TechRadar, Engadget and Tom's Guide call it the best laptop for most people. It starts at $1,099 with 16GB and 512GB, and Tom's Guide measured 15 hours 30 minutes of battery." },
+      why: "TechRadar, Engadget and Tom's Guide call it the best laptop for most people. Apple's June price rise put the list price near $1,299 for 16GB and 512GB, but Amazon sells it for $1,099. Tom's Guide measured 15 hours 30 minutes of battery." },
     { name: "Lenovo ThinkPad T14 Gen 6", facts: { upgrade: true }, tier: "mid", form: "windows", checked: "2026-11",
       why: "Tom's Guide's survival guide recommends business laptops like this one for socketed RAM, solid build and reasonable prices. Check the exact RAM and price on the listing." },
     { name: "Framework Laptop 13", facts: { upgrade: true }, tier: "mid", form: "windows", checked: "2026-11",
       why: "Listed as the best for upgradeability, with user-replaceable RAM and storage. Pre-built models cost slightly more to start." },
     { name: "Dell XPS 14 (2026)", facts: { longbattery: true }, tier: "upper", form: "windows", checked: "2026-11",
-      why: "Tom's Guide's best Windows laptop, with a 120Hz tandem OLED screen. Tom's Hardware says its battery life impresses, and a 32GB model was $1,519." },
+      why: "Tom's Guide's best Windows laptop, with a 120Hz tandem OLED screen. Tom's Hardware says its battery life impresses, and a 32GB model was $1,519. Dell lists the base model at $1,599.99 and sold it for $1,349.99 with a discount." },
     { name: "Lenovo ThinkPad X1 Carbon Gen 14 Aura", facts: {}, tier: "upper", form: "windows", checked: "2026-11",
       why: "Tom's Hardware lists it among the best Windows clamshells, with a sharp 1440p webcam. Its only real nitpick was how expensive it is." }
   ]

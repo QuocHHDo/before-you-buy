@@ -24,7 +24,7 @@ window.SITE_DATA = {
       value: 0.8,
       name: "Budget",
       range: "Under $500",
-      adds: "Solid 1080p gaming. Tom's Hardware lists the Radeon RX 9060 XT 16GB at a median $464, and PC Gamer lists the RTX 5060 at $380.",
+      adds: "Solid 1080p gaming. Tom's Hardware lists the Radeon RX 9060 XT 16GB at about $449, and PC Gamer's August 14 tracker had the RTX 5060 at $359, against a $299 list price.",
       missing: "Headroom. Cards in this range often have 8 GB of memory, which runs out in some games.",
       bestFor: "A 1080p monitor, or a first build.",
       badge: "Best value"
@@ -34,7 +34,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$500–850",
-      adds: "Strong 1440p and entry 4K. Tom's Hardware lists the RX 9070 XT at $759 and the RTX 5070 at $659 against list prices of $599 and $549.",
+      adds: "Strong 1440p and entry 4K. Tom's Hardware lists the RX 9070 XT at about $719 and the RTX 5070 at $659 against list prices of $599 and $549.",
       missing: "The list price. Street prices have sat well above list.",
       bestFor: "A 1440p monitor, which Newegg's guide calls the current sweet spot.",
       badge: "Sweet spot"
@@ -44,7 +44,7 @@ window.SITE_DATA = {
       value: 0.97,
       name: "Upper",
       range: "$850+",
-      adds: "Top-end performance and ray tracing. Tom's Hardware lists the RTX 5070 Ti at $1,099.99, and tech-insider puts it near $919.",
+      adds: "Top-end performance and ray tracing. Tom's Hardware lists the RTX 5070 Ti at $1,099.99, and PC Gamer's August tracker had it at $1,030. Tom's Hardware's November 3 update put every RTX 50 card it tracks above launch price.",
       missing: "Value. Tom's Hardware calls the $300 premium over an RX 9070 XT worth it over a five-year life, but that is its view.",
       bestFor: "4K or heavy ray tracing, if your power supply and case can take it.",
       badge: "Paying for polish"
@@ -149,22 +149,22 @@ window.SITE_DATA = {
   picksNote: "A short list of well-reviewed cards. Models and prices change quickly, so use these to learn what to look for and verify the exact model, memory, length and current price.",
   picks: [
     { name: "ASUS Dual GeForce RTX 5060 8GB", facts: { vram: 8, lowpsu: true }, tier: "budget", form: "nvidia", checked: "2026-11",
-      why: "Newegg lists it at 228 mm with 8 GB of GDDR7, one 8-pin connector and a 550W recommendation. PC Gamer lists the RTX 5060 at $380. Fine for 1080p, but 8 GB may run short." },
+      why: "Newegg lists it at 228 mm with 8 GB of GDDR7, one 8-pin connector and a 550W recommendation. PC Gamer's August 14 tracker had the RTX 5060 at $359, against a $299 list price. Fine for 1080p, but 8 GB may run short." },
     { name: "GeForce RTX 5060 Ti 8GB", facts: { vram: 8 }, tier: "budget", form: "nvidia", checked: "2026-11",
-      why: "PC Gamer lists it at $488, and Tom's Hardware's 8GB-versus-16GB test found it much slower with ray tracing. Spend the extra for 16 GB if you can." },
+      why: "PC Gamer's August 14 tracker had it at $420 against a $379 list price, and Tom's Hardware's 8GB-versus-16GB test found it much slower with ray tracing. Spend the extra for 16 GB if you can." },
     { name: "PowerColor Reaper Radeon RX 9060 XT 16GB", facts: { vram: 16, lowpsu: true }, tier: "budget", form: "amd", checked: "2026-11",
-      why: "Newegg lists it at 200 mm with 16 GB and a 500W recommendation. Tom's Hardware lists the RX 9060 XT 16GB at a median $464 against a $349 list price." },
+      why: "Newegg lists it at 200 mm with 16 GB and a 500W recommendation. Tom's Hardware lists the RX 9060 XT 16GB at about $449 against a $349 list price, and PC Gamer's August 14 tracker had $470." },
     { name: "GeForce RTX 5060 Ti 16GB", facts: { vram: 16 }, tier: "mid", form: "nvidia", checked: "2026-11",
-      why: "Tom's Guide lists a $429 list price and a $569 lowest price, while PC Gamer lists $780, so check live prices. Tom's Hardware says the extra $50 for 16 GB is well spent." },
+      why: "Tom's Guide lists a $429 list price and a $569 lowest price, while PC Gamer's August 14 tracker had it at $650, so check live prices. Tom's Hardware says the extra $50 for 16 GB is well spent." },
     { name: "Radeon RX 9070 GRE", facts: {}, tier: "mid", form: "amd", checked: "2026-11",
       why: "Tom's Hardware says it's the only card still selling near its list price in 2026, and Newegg lists it at $570. Check the memory and its availability." },
     { name: "Radeon RX 9070", facts: { vram: 16 }, tier: "mid", form: "amd", checked: "2026-11",
-      why: "PCGamesN calls it the best for most people, and Tom's Hardware calls it the 1440p raster value champ. Tom's Hardware lists it at $634 and PC Gamer at $667." },
+      why: "PCGamesN calls it the best for most people, and Tom's Hardware calls it the 1440p raster value champ. Tom's Hardware lists it at about $639 and PC Gamer's August tracker had $650." },
     { name: "GeForce RTX 5070", facts: { vram: 12 }, tier: "mid", form: "nvidia", checked: "2026-11",
       why: "Newegg lists 12 GB and a 250W rating, and starts it at $609.99, while PC Gamer lists $779. TechSpot prefers the RX 9070 mainly for its 16 GB." },
     { name: "Radeon RX 9070 XT", facts: { vram: 16 }, tier: "mid", form: "amd", checked: "2026-11",
-      why: "Tom's Hardware calls it the cheapest way into 4K 60 without upscaling, at $759 against a $599 list price. Tom's Guide lists a 304W rating while Newegg lists both 304W and 330W, so check your power supply." },
+      why: "Tom's Hardware calls it the cheapest way into 4K 60 without upscaling, at about $719 against a $599 list price, and PC Gamer's August tracker had $720. Tom's Guide lists a 304W rating while Newegg lists both 304W and 330W, so check your power supply." },
     { name: "GeForce RTX 5070 Ti", facts: {}, tier: "upper", form: "nvidia", checked: "2026-11",
-      why: "Tom's Hardware picks it as its best high-end card at $1,099.99, and tech-insider puts it near $919. One roundup lists 12 GB, which conflicts with the 16 GB other sources imply, so confirm the memory." }
+      why: "Tom's Hardware picks it as its best high-end card at $1,099.99, and PC Gamer's August tracker had it at $1,030. Tom's Hardware's November 3 update put every RTX 50 card it tracks above launch price. One roundup lists 12 GB, which conflicts with the 16 GB other sources imply, so confirm the memory." }
   ]
 };

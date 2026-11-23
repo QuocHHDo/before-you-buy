@@ -23,7 +23,7 @@ window.SITE_DATA = {
       value: 0.8,
       name: "Budget",
       range: "Under $800",
-      adds: "A Mini-LED set with a strong picture for the money. Tom's Guide's best budget pick, the TCL QM6K, starts at $550 for 55 inches.",
+      adds: "A Mini-LED set with a strong picture for the money. Tom's Guide's best budget pick, the TCL QM6K, was $550 for 55 inches when we last listed it; the 75 inch was $797 at Amazon in Black Friday sales.",
       missing: "OLED black levels and the brightness, processing and polish of flagship sets.",
       bestFor: "Most living rooms and most viewers.",
       badge: "Best value"
@@ -33,7 +33,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$800–1,500",
-      adds: "Brighter Mini-LED, such as the Hisense U8QG at $997 on Amazon per Tom's Guide, or a mainstream OLED like the LG C5.",
+      adds: "Brighter Mini-LED, such as the Hisense U8QG (65 inches was $897.99 at Best Buy against a $2,199 list price), or a mainstream OLED like the LG C6.",
       missing: "The very last bit of picture quality. Tom's Guide says the LG G5 looks slightly prettier than the C5 but isn't $1,500 better.",
       bestFor: "Movie nights, sports, and gaming."
     },
@@ -145,19 +145,19 @@ window.SITE_DATA = {
   picksNote: "Well-reviewed TVs, sorted by typical price for common sizes. Prices vary a lot by screen size and change often, so check the current price for your size.",
   picks: [
     { name: "TCL QM6K (QD-Mini LED)", facts: {}, tier: "budget", form: "miniled", checked: "2026-11",
-      why: "Tom's Guide's best budget TV. The 55 inch model starts at $550." },
+      why: "Tom's Guide's best budget TV. The 55 inch model was listed from $550, and Tom's Guide shows the 75 inch at $797 on Amazon, down from $999. Costco had a 65 inch QM6K Pro at $499.99 per Slickdeals." },
     { name: "Hisense U75QG (Mini-LED)", facts: {}, tier: "budget", form: "miniled", checked: "2026-11",
       why: "Tom's Guide's budget runner-up, and its best TV under $800." },
     { name: "TCL QM8L (Mini-LED)", facts: {}, tier: "mid", form: "miniled", checked: "2026-11",
-      why: "TechRadar's pick for the best low-cost big screen. Check the price at your size." },
+      why: "TechRadar's pick for the best low-cost big screen. Tom's Guide shows the 75 inch at $1,397 on Amazon, down from $2,999. One site puts the 65 inch at $1,078 to $1,200, but only one source says so." },
     { name: "Hisense U8QG (Mini-LED)", facts: { brightroom: true }, tier: "mid", form: "miniled", checked: "2026-11",
-      why: "Tom's Guide calls it a Mini-LED marvel with incredible brightness and color, running Google TV, at $997 on Amazon." },
+      why: "Tom's Guide calls it a Mini-LED marvel with incredible brightness and color, running Google TV. The 65 inch was $897.99 at Best Buy against a $2,199 list price, a deep discount for a 2025 model." },
     { name: "LG C5 OLED", facts: { gaming: true }, tier: "mid", form: "oled", checked: "2026-11",
-      why: "Tom's Guide gave it five stars and called it the best TV of 2026 so far. TechRadar lists four HDMI 2.1 ports and up to 144Hz." },
+      why: "Tom's Guide gave it five stars and called it the best TV of 2026 so far. TechRadar lists four HDMI 2.1 ports and up to 144Hz. This is the 2025 model: the LG C6 replaced it at the same launch price, so check that stock is still new and compare with the C6, which was $1,399.99 on sale." },
     { name: "LG C6 OLED", facts: { gaming: true }, tier: "upper", form: "oled", checked: "2026-11",
-      why: "TechRadar lists 4K at 165Hz, variable refresh rate, 9.2ms input lag in Boost mode and four HDMI 2.1 ports." },
+      why: "The 65 inch launched at $2,699.99 and was $1,399.99 at Best Buy and LG, and $1,349.99 at Walmart, for Black Friday. TechRadar lists 4K at 165Hz, variable refresh rate, 9.2ms input lag in Boost mode and four HDMI 2.1 ports." },
     { name: "Samsung S95H OLED", facts: {}, tier: "upper", form: "oled", checked: "2026-11",
-      why: "RTINGS names it the best Samsung TV it tested in 2026." },
+      why: "RTINGS names it the best Samsung TV it tested in 2026. The 65 inch launched at $3,399.99 and was listed around $2,300 to $2,500 in early November, per one price tracker." },
     { name: "Samsung S99H OLED", facts: { brightroom: true }, tier: "upper", form: "oled", checked: "2026-11",
       why: "TechRadar's best TV for bright rooms. It calls the price hefty even next to other premium OLEDs." }
   ]

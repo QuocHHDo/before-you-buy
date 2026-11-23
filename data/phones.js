@@ -35,7 +35,7 @@ window.SITE_DATA = {
       value: 0.92,
       name: "Mid",
       range: "$400–700",
-      adds: "A better camera and screen and, on some models, long updates. The Pixel 10a promises seven years; Tom's Guide calls it the best under $500, while Android Headlines listed $599.",
+      adds: "A better camera and screen and, on some models, long updates. The Pixel 10a promises seven years; Tom's Guide calls it the best under $500, while the Google Store lists $599 and Amazon ran $50 off.",
       missing: "The best cameras and the longest-lasting batteries.",
       bestFor: "Most people who keep a phone for years."
     },
@@ -44,7 +44,7 @@ window.SITE_DATA = {
       value: 0.97,
       name: "Upper",
       range: "$700+",
-      adds: "Flagships such as the Galaxy S26 Ultra, which Tom's Guide calls the best camera phone, or the iPhone 17 Pro Max.",
+      adds: "Flagships such as the Galaxy S26 Ultra, which Tom's Guide calls the best camera phone, or the iPhone 18 Pro Max.",
       missing: "Everyday value. Flagship prices have risen, with PhoneArena noting the Galaxy S26 got a $100 hike.",
       bestFor: "Camera fans and people who want the best of everything.",
       badge: "Paying for polish"
@@ -147,9 +147,9 @@ window.SITE_DATA = {
     { name: "Apple iPhone 17e", facts: { years7: false }, tier: "mid", form: "iphone", checked: "2026-11",
       why: "PhoneArena's pick for an entry-level iPhone under $600, and TechRadar says it keeps the same price as before. Check the storage and current price." },
     { name: "Apple iPhone 17", facts: { years7: false, storage256: true }, tier: "upper", form: "iphone", checked: "2026-11",
-      why: "Tom's Guide's best iPhone value, with 256GB as standard per TechRadar. Check whether a newer model has replaced it, and the current price." },
-    { name: "Apple iPhone 17 Pro Max", facts: { years7: false }, tier: "upper", form: "iphone", checked: "2026-11",
-      why: "Tom's Guide and TechRadar's best phone overall earlier this year. Tech Insider says the iPhone 18 Pro is now on shelves, so check which is current." },
+      why: "Tom's Guide's best iPhone value, with 256GB as standard per TechRadar. Apple moved the base iPhone 18 to a spring release, per 9to5Mac, so the iPhone 17 is still the current standard model as of November 2026. Check the current price." },
+    { name: "Apple iPhone 18 Pro Max", facts: { years7: false }, tier: "upper", form: "iphone", checked: "2026-11",
+      why: "Apple replaced the iPhone 17 Pro Max with this one on September 9, 2026, and discontinued the older model, per MacRumors. It starts at $1,299, $100 more than last year's. Reviews of the 17 Pro Max mostly still apply, but we have not seen full 18 Pro Max reviews." },
     { name: "Moto G Play (2026)", facts: { years7: false }, tier: "budget", form: "android", checked: "2026-11",
       why: "Android Headlines' best phone under $250, at $249.99. Motorola sets update support phone by phone, so check the promise." },
     { name: "Samsung Galaxy A17 5G", facts: {}, tier: "budget", form: "android", checked: "2026-11",
@@ -157,12 +157,12 @@ window.SITE_DATA = {
     { name: "Moto G Power (2026)", facts: { years7: false }, tier: "budget", form: "android", checked: "2026-11",
       why: "Android Headlines' best phone under $400, at $399.99, with a big battery and rugged build. Motorola has no clearly defined update policy." },
     { name: "Google Pixel 10a", facts: { years7: true }, tier: "mid", form: "android", checked: "2026-11",
-      why: "Tom's Guide's best phone under $500, and Android Headlines' best budget phone overall at $599 on October 22, 2026, with seven years of updates. Outlets list different prices, so check the current one." },
+      why: "Tom's Guide's best phone under $500, and Android Headlines' best budget phone overall, with seven years of updates. The Google Store lists it from $599, and Amazon had it about $50 off for Black Friday. It was $499 earlier in 2026, so prices have moved a lot." },
     { name: "Samsung Galaxy A37 5G", facts: { ip68: true }, tier: "mid", form: "android", checked: "2026-11",
-      why: "Android Central says it adds IP68 and Android 16 out of the box, and can be found below $400 at times. BGR places it in the $400 to $500 range." },
+      why: "Android Central says it adds IP68 and Android 16 out of the box, and can be found below $400 at times. BGR places it in the $400 to $500 range. A price tracker lists it near $340 to $350 in the US, but another lists $540 for a 256GB version, so check the exact model." },
     { name: "Samsung Galaxy S25 FE", facts: {}, tier: "mid", form: "android", checked: "2026-11",
       why: "Tech Advisor's best mid-range phone, and PhoneArena lists it under $600. Check the current price and update promise." },
     { name: "Samsung Galaxy S26 Ultra", facts: { years7: true }, tier: "upper", form: "android", checked: "2026-11",
-      why: "Tom's Guide's best camera phone and best Android phone, with seven years of updates (2026 to 2033). It has a Privacy Display. Check the current price." }
+      why: "Tom's Guide's best camera phone and best Android phone, with seven years of updates (2026 to 2033). It has a Privacy Display. Samsung raised the list price to $1,399, but it is $949 at Best Buy and Amazon in Black Friday sales." }
   ]
 };

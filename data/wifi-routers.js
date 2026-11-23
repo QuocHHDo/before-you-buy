@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["TP-Link", "Netgear and eero", "Asus"],
   brandRows: [
     { label: "Examples", cells: ["Archer BE3600, Archer AXE75, Deco BE63, Deco XE75", "Orbi 370 series, Nighthawk RS700S, eero Pro 7", "RT-BE96U, ZenWiFi BE5000 Pro"] },

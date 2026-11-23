@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Shark", "Dyson", "Tineco and Eureka"],
   brandRows: [
     { label: "Examples", cells: ["PowerDetect HZ4002, Stratos", "V15 Detect, V16", "Tineco Pure ONE S11, GoStation Smart; Eureka ReactiSense 440"] },

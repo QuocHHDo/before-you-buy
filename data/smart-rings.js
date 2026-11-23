@@ -138,6 +138,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Oura", "RingConn and Amazfit", "Samsung and Ultrahuman"],
   brandRows: [
     { label: "Examples", cells: ["Ring 4, Ring 5, Ring 4 Ceramic", "RingConn Gen 2 Air, Gen 2, Gen 3; Amazfit Helio Ring", "Galaxy Ring; Ultrahuman Ring PRO"] },

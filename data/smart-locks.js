@@ -125,11 +125,11 @@ window.SITE_DATA = {
     }
   ],
 
-  brandColumns: ["Schlage and Yale", "August and Level", "Aqara and Ultraloq"],
+  brandColumns: ["Schlage and Yale", "August and Level", "Aqara and Ultraloq", "Unbranded marketplace locks"],
   brandRows: [
-    { label: "Examples", cells: ["Schlage Encode Plus, Yale Assure Lock 2", "August Wi-Fi Smart Lock (4th gen), Level Lock, Level Bolt", "Aqara U100 and U200, Ultraloq U-Bolt Pro Wi-Fi"] },
-    { label: "What stands out", cells: ["One roundup says the Encode Plus does Apple Home Key over its own Wi-Fi. Yale's lock takes swappable Wi-Fi, Bluetooth or Thread modules", "August is a retrofit lock that clamps over your deadbolt. The Level Lock is listed at $249 with ANSI Grade 1", "One roundup says the Aqara U100 has an exceptional fingerprint reader, and lists the Ultraloq U-Bolt Pro Wi-Fi at $149"] },
-    { label: "Watch out for", cells: ["Yale's Wi-Fi module is extra, and one reviewer saw about four months of battery with it", "One reviewer says August has promised Matter since 2023, while another lists it arriving by update, so check the firmware. Level needs a $79 bridge or a Thread hub", "Aqara's U100 needs an Apple Home hub for remote access, and one roundup says Matter setup still needs the brand's app first"] }
+    { label: "Examples", cells: ["Schlage Encode Plus, Yale Assure Lock 2", "August Wi-Fi Smart Lock (4th gen), Level Lock, Level Bolt", "Aqara U100 and U200, Ultraloq U-Bolt Pro Wi-Fi", "Bluetooth locks sold under changing names, such as the Nokelock padlock Sophos reported on at about $40"] },
+    { label: "What stands out", cells: ["One roundup says the Encode Plus does Apple Home Key over its own Wi-Fi. Yale's lock takes swappable Wi-Fi, Bluetooth or Thread modules", "August is a retrofit lock that clamps over your deadbolt. The Level Lock is listed at $249 with ANSI Grade 1", "One roundup says the Aqara U100 has an exceptional fingerprint reader, and lists the Ultraloq U-Bolt Pro Wi-Fi at $149", "Low prices and Amazon's Choice badges. Sophos says Nokelock padlocks were sold under a range of other brand names."] },
+    { label: "Watch out for", cells: ["Yale's Wi-Fi module is extra, and one reviewer saw about four months of battery with it", "One reviewer says August has promised Matter since 2023, while another lists it arriving by update, so check the firmware. Level needs a $79 bridge or a Thread hub", "Aqara's U100 needs an Apple Home hub for remote access, and one roundup says Matter setup still needs the brand's app first", "Older reports, mostly on padlocks rather than deadbolts. Pen Test Partners found Nokelock flaws that let an attacker assign the lock to another account, and Malwarebytes cites DefCon tests where 12 of 16 smart lock models failed under sustained attack."] }
   ],
   brandVerdict: "Check how the lock connects, what it needs for remote access, and whether it fits your door before the brand. A cheap lock with a hidden hub or bridge cost isn't cheap.",
 

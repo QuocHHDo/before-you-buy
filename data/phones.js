@@ -120,6 +120,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Apple", "Google and Samsung", "Motorola and others"],
   brandRows: [
     { label: "Examples", cells: ["iPhone 17e, iPhone 17, iPhone 17 Pro Max", "Pixel 10a, Galaxy A37 and S26 Ultra", "Moto G Play and G Power, Nothing"] },

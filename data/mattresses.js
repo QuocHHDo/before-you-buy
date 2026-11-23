@@ -120,6 +120,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Nectar and DreamCloud", "Saatva, Helix and WinkBed", "Stores and big retailers"],
   brandRows: [
     { label: "Examples", cells: ["Nectar Classic and Luxe, DreamCloud Classic Hybrid", "Saatva Classic, Helix Midnight Luxe, WinkBed", "Costco and mattress shops"] },

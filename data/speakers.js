@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Types compared",
   brandColumns: ["Small portables", "Wi-Fi portables", "Soundbars"],
   brandRows: [
     { label: "Examples", cells: ["JBL Clip 5, Wonderboom 4, Tribit PocketGo", "Sonos Roam 2, Sonos Play", "Samsung HW-B750D, Hisense HS5100, Sonos Beam"] },

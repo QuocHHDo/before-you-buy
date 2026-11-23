@@ -124,6 +124,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["LG", "Bosch and Fisher & Paykel", "Samsung and others"],
   brandRows: [
     { label: "Examples", cells: ["LRFLC2706S, LRMVS2806S, LT18S2100W top-freezer", "Bosch 800 Series B36CT80SNS, B36FD50SNS", "Samsung RT70F18LRSR, Whirlpool, GE, Hisense, Frigidaire"] },

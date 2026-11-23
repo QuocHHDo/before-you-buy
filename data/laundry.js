@@ -124,6 +124,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["LG", "Speed Queen", "Samsung and others"],
   brandRows: [
     { label: "Examples", cells: ["WM4000HWA with DLEX4000W, the heat pump laundry center WKHC252HWA", "TR5 top-load washer with DR5 dryer", "Samsung Bespoke and Smart sets, Electrolux, Whirlpool, GE"] },

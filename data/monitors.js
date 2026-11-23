@@ -121,6 +121,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Dell", "ASUS and MSI", "AOC and budget makers"],
   brandRows: [
     { label: "Examples", cells: ["UltraSharp U2724DE and U3225QE, Alienware AW2726DM", "ROG Swift PG32UCDM and PG27AQDP, MSI MPG 272URX", "AOC Q27G3XMN, Acer Vero B247Y G, Pixio PX248 Wave"] },

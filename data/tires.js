@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Michelin", "Hankook", "Other all-weather picks"],
   brandRows: [
     { label: "Examples", cells: ["Defender2, CrossClimate2", "Kinergy XP, iON evo AS", "Continental SecureContact AW, Pirelli Cinturato WeatherActive"] },

@@ -129,6 +129,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Platforms compared",
   brandColumns: ["Apple", "Windows makers", "Chromebooks"],
   brandRows: [
     { label: "Examples", cells: ["MacBook Air M5, MacBook Neo", "Dell XPS, Lenovo ThinkPad, ASUS Vivobook, Framework", "Asus Chromebook CX15 and Plus CX34"] },

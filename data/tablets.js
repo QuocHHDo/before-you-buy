@@ -126,6 +126,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Platforms compared",
   brandColumns: ["iPad", "Android tablets", "E-readers"],
   brandRows: [
     { label: "Examples", cells: ["iPad, iPad mini, iPad Air", "Galaxy Tab S11, Lenovo Tab Plus Gen 2, Motorola MotoPad", "Kindle Paperwhite, Kobo Libra Colour"] },

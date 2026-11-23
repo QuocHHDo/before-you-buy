@@ -124,11 +124,11 @@ window.SITE_DATA = {
     }
   ],
 
-  brandColumns: ["Ring, Nest and Arlo", "Eufy, Reolink and Wyze", "Blink"],
+  brandColumns: ["Ring, Nest and Arlo", "Eufy, Reolink and Wyze", "Blink", "Random no-name"],
   brandRows: [
-    { label: "Examples", cells: ["Ring Floodlight Cam Pro, Nest Cam Outdoor, Arlo Pro 6", "Eufy SoloCam S340, Reolink Argus 4 Pro, Wyze Cam v4", "Blink Outdoor 4"] },
-    { label: "Storage", cells: ["Cloud subscriptions. SafeWise says Ring doesn't record without one, and Arlo local storage needs a SmartHub that isn't included", "Local storage. Eufy lists no monthly fee, Wyze lists microSD, and Reolink lists microSD or a Home Hub", "A $3 monthly plan, with local storage through the Sync Module 2 sold separately"] },
-    { label: "Watch out for", cells: ["Plan names and prices change. Arlo renamed its plans in September 2026", "Wyze says the S340's built-in storage is 8 GB, and expanding it needs a HomeBase", "The module that gives local storage costs extra"] }
+    { label: "Examples", cells: ["Ring Floodlight Cam Pro, Nest Cam Outdoor, Arlo Pro 6", "Eufy SoloCam S340, Reolink Argus 4 Pro, Wyze Cam v4", "Blink Outdoor 4", "Unbranded Wi-Fi cameras sold under many names. Which? tested models including the ieGeek, Sricam and Accfly Camhi."] },
+    { label: "Storage", cells: ["Cloud subscriptions. SafeWise says Ring doesn't record without one, and Arlo local storage needs a SmartHub that isn't included", "Local storage. Eufy lists no monthly fee, Wyze lists microSD, and Reolink lists microSD or a Home Hub", "A $3 monthly plan, with local storage through the Sync Module 2 sold separately", "Usually a memory card or an app-run cloud you can't check. Tom's Guide reports one researcher found cheap app-run cameras uploading to the cloud without proper protection."] },
+    { label: "Watch out for", cells: ["Plan names and prices change. Arlo renamed its plans in September 2026", "Wyze says the S340's built-in storage is 8 GB, and expanding it needs a HomeBase", "The module that gives local storage costs extra", "In 2019 Which? reported flaws in cheap cameras sold on Amazon, including weak passwords and Wi-Fi passwords sent unencrypted. Tom's Guide says the cheap app cameras in one test had no way to update their firmware."] }
   ],
   brandVerdict: "Check where the footage is stored and what it costs a year before the resolution. A cheap camera with a required plan can cost more than a pricier one with a card slot.",
 

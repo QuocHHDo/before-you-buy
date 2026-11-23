@@ -121,12 +121,12 @@ window.SITE_DATA = {
     }
   ],
 
-  brandColumns: ["Garmin and Nexar", "VIOFO, Vantrue and 70mai", "BlackVue and Thinkware"],
+  brandColumns: ["Garmin and Nexar", "VIOFO, Vantrue and 70mai", "BlackVue and Thinkware", "Random no-name"],
   brandRows: [
-    { label: "Examples", cells: ["Garmin Dash Cam Mini 3, Nexar One", "VIOFO A329S, Vantrue N5S, 70mai A810S", "BlackVue Elite 9, Thinkware U3000 Pro"] },
-    { label: "What stands out", cells: ["Tom's Guide calls the Mini 3 the best compact dash cam, at 1080p and 140 degrees. Nexar says its One has built-in LTE and automatic cloud backup.", "DashCamTalk scores the A810S 7.7, the A329S 7.5 and the N5S 7.0, with buffered parking modes and extra channels.", "Vortex Radar, an affiliate site, picks the Thinkware U3000 Pro for radar parking and the BlackVue Elite 9 for cloud."] },
-    { label: "Parking and cloud", cells: ["Garmin cloud storage and file sharing need a Garmin Drive subscription, per Nexar.", "DashCamTalk lists an optional LTE module for the A329S; the Vantrue E1 Pro has radar parking.", "BlackVue says few brands provide remote connectivity. Check whether cloud use costs extra."] },
-    { label: "Watch out for", cells: ["Nexar is a maker reviewing its own cameras, so weigh its picks accordingly.", "DashCamTalk says the VIOFO A119M Pro runs hot and the A810S's rear video isn't the best.", "Reviews come from an affiliate site, so check prices and fees on the maker's page."] }
+    { label: "Examples", cells: ["Garmin Dash Cam Mini 3, Nexar One", "VIOFO A329S, Vantrue N5S, 70mai A810S", "BlackVue Elite 9, Thinkware U3000 Pro", "Little-known Amazon listings, such as a Wakerug model TechRadar bought for about $20"] },
+    { label: "What stands out", cells: ["Tom's Guide calls the Mini 3 the best compact dash cam, at 1080p and 140 degrees. Nexar says its One has built-in LTE and automatic cloud backup.", "DashCamTalk scores the A810S 7.7, the A329S 7.5 and the N5S 7.0, with buffered parking modes and extra channels.", "Vortex Radar, an affiliate site, picks the Thinkware U3000 Pro for radar parking and the BlackVue Elite 9 for cloud.", "Very low prices, and sometimes a memory card in the box. TechRadar says that $20 camera's Full HD video quality didn't match its claim."] },
+    { label: "Parking and cloud", cells: ["Garmin cloud storage and file sharing need a Garmin Drive subscription, per Nexar.", "DashCamTalk lists an optional LTE module for the A329S; the Vantrue E1 Pro has radar parking.", "BlackVue says few brands provide remote connectivity. Check whether cloud use costs extra.", "Often an app-only setup. Which? says app-connected dash cams add security risks, and footage kept only on the card can be corrupted, damaged, lost or stolen."] },
+    { label: "Watch out for", cells: ["Nexar is a maker reviewing its own cameras, so weigh its picks accordingly.", "DashCamTalk says the VIOFO A119M Pro runs hot and the A810S's rear video isn't the best.", "Reviews come from an affiliate site, so check prices and fees on the maker's page.", "BlackboxMyCar, which sells rival brands, says some Amazon \"4K\" bestsellers use 4 or 5.1 megapixel sensors, which isn't true 4K. VIOFO says a bad memory card causes freezing and missing files, so buy a high-endurance card."] }
   ],
   brandVerdict: "Choose by parking, memory card and heat before resolution. A 4K camera on a cheap card and a plug that cuts out with the ignition records nothing useful when you need it most.",
 

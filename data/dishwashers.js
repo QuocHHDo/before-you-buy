@@ -124,6 +124,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Bosch and Samsung", "Whirlpool and Maytag", "Frigidaire and GE"],
   brandRows: [
     { label: "Examples", cells: ["Bosch 500 Series SHP65CM5N, Samsung Bespoke DW90F89P0USR", "Whirlpool WDF520PADM and WDT750SAKZ, Maytag MDB4949SKZ", "Frigidaire FDPC4314AS, GE GDF630PSMSS"] },

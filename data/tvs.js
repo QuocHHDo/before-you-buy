@@ -121,6 +121,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["TCL and Hisense", "LG, Samsung and Sony flagships", "Entry-level LG and Samsung"],
   brandRows: [
     { label: "Examples", cells: ["TCL QM6K, Hisense U8QG", "LG G6, Samsung S95H, Sony Bravia 8 II", "The cheapest LED sets from the big names"] },

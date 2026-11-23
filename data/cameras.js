@@ -122,12 +122,13 @@ window.SITE_DATA = {
     }
   ],
 
-  brandColumns: ["Canon", "Sony", "Fujifilm and Nikon"],
+  brandHeading: "Brands and third-party lenses",
+  brandColumns: ["Canon", "Sony", "Fujifilm and Nikon", "Third-party lenses (Sigma, Tamron, Viltrox)"],
   brandRows: [
-    { label: "Examples", cells: ["EOS R50 and R100", "ZV-E10 II and A6700", "Fujifilm X-M5 and X100VI, Nikon Z fc"] },
-    { label: "What stands out", cells: ["Guided menus and strong autofocus; the R50 is the most recommended beginner camera", "Creator and video features, and the widest lens range", "Fujifilm has strong style and demand; Nikon's Z fc has intuitive manual controls, per Live Science"] },
-    { label: "Lenses", cells: ["RF mount; per Digit, fewer third-party lenses than Sony", "E mount; Sigma and Tamron make many lenses for it", "Fujifilm X mount and Nikon Z mount; Nikon DSLR lenses need an adapter"] },
-    { label: "Watch out for", cells: ["Lens cost adds up after the body", "Higher prices; Beebom lists the ZV-E10 II at $1,298", "Price rises: PetaPixel reports Fujifilm raised some Japanese prices by up to 23%, and the X100VI is hard to find"] }
+    { label: "Examples", cells: ["EOS R50 and R100", "ZV-E10 II and A6700", "Fujifilm X-M5 and X100VI, Nikon Z fc", "Sigma Art lenses, Tamron zooms and Viltrox autofocus primes"] },
+    { label: "What stands out", cells: ["Guided menus and strong autofocus; the R50 is the most recommended beginner camera", "Creator and video features, and the widest lens range", "Fujifilm has strong style and demand; Nikon's Z fc has intuitive manual controls, per Live Science", "Fstoppers says Sigma Art lenses match or beat first-party sharpness in many comparisons, and they often cost less."] },
+    { label: "Lenses", cells: ["RF mount; per Digit, fewer third-party lenses than Sony", "E mount; Sigma and Tamron make many lenses for it", "Fujifilm X mount and Nikon Z mount; Nikon DSLR lenses need an adapter", "Sony E mount has the broadest third-party selection, per Fstoppers. Fstoppers says no one sells a licensed full-frame autofocus lens for Canon RF, and SansMirror says Nikon Z autofocus lenses are reverse-engineered."] },
+    { label: "Watch out for", cells: ["Lens cost adds up after the body", "Higher prices; Beebom lists the ZV-E10 II at $1,298", "Price rises: PetaPixel reports Fujifilm raised some Japanese prices by up to 23%, and the X100VI is hard to find", "Compatibility can lag a new body. Amateur Photographer says the Sony A7 V launched with reports of lens problems that Viltrox fixed by firmware, and Daily Camera News says some makers cap burst speed with non-native lenses."] }
   ],
   brandVerdict: "Choose the lens mount you can afford to live with, then the body. The first camera matters less than the lenses you'll buy for it, and mounts don't cross over without adapters.",
 

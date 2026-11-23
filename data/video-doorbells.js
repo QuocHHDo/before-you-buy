@@ -124,6 +124,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Ring and Google Nest", "Eufy and Reolink", "Wyze and bargain brands"],
   brandRows: [
     { label: "Examples", cells: ["Ring Battery Doorbell Plus, Nest Doorbell", "Eufy E340, Reolink Video Doorbell", "Wyze Battery Video Doorbell, no-name listings"] },

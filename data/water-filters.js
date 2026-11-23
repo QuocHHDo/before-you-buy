@@ -126,6 +126,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Filter types compared",
   brandColumns: ["Pitchers", "Under-sink filters", "Reverse osmosis (RO)"],
   brandRows: [
     { label: "Examples", cells: ["Brita Denali with Elite filter, ZeroWater, Amazon Basics", "Frizzlife SK99, Waterdrop 10UA", "APEC ROES-50, iSpring RCC7-BN"] },

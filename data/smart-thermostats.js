@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Google Nest", "ecobee", "Honeywell, Sensi and Amazon"],
   brandRows: [
     { label: "Examples", cells: ["Nest Learning Thermostat (4th gen), Nest Thermostat", "ecobee Smart Thermostat Enhanced and Premium", "Honeywell Home T9 and X8S, Sensi ST55, Amazon Smart Thermostat"] },

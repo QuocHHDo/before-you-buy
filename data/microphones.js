@@ -124,11 +124,12 @@ window.SITE_DATA = {
     }
   ],
 
-  brandColumns: ["Shure and Rode", "Elgato and HyperX", "Samson and Blue"],
+  brandHeading: "Big brands vs budget brands",
+  brandColumns: ["Shure and Rode", "Elgato and HyperX", "Samson and Blue", "Fifine, Tonor and Amazon Basics"],
   brandRows: [
-    { label: "Examples", cells: ["Shure MV7+, Rode PodMic USB", "Elgato Wave:3 MK.2, Wave Neo, HyperX QuadCast 2 S", "Samson Q2U, Blue Yeti X"] },
-    { label: "What stands out", cells: ["Post Flow says the MV7+ and PodMic USB carry both USB and XLR connectors", "Post Flow says Elgato is the only maker with a software mixer, Wave Link", "Post Flow lists the Q2U at $79.99 with USB and XLR, and Reviewed named the Yeti X best overall"] },
-    { label: "Watch out for", cells: ["Prices vary: Sweetwater lists the PodMic USB at $190 while Musician's Friend lists $199 to $209", "Post Flow lists the Wave:3 MK.2 at $133.99 while BGR lists $169.99, and PopSci says it needs a USB 3.0 port", "Reviewed says the Yeti X isn't great for conversations"] }
+    { label: "Examples", cells: ["Shure MV7+, Rode PodMic USB", "Elgato Wave:3 MK.2, Wave Neo, HyperX QuadCast 2 S", "Samson Q2U, Blue Yeti X", "Fifine K669B, Tonor TC-777, Amazon Basics USB condenser"] },
+    { label: "What stands out", cells: ["Post Flow says the MV7+ and PodMic USB carry both USB and XLR connectors", "Post Flow says Elgato is the only maker with a software mixer, Wave Link", "Post Flow lists the Q2U at $79.99 with USB and XLR, and Reviewed named the Yeti X best overall", "CNN Underscored named the Fifine K669B its best budget mic at $35, and PC Gamer called the $23 Amazon Basics mic decent and well built."] },
+    { label: "Watch out for", cells: ["Prices vary: Sweetwater lists the PodMic USB at $190 while Musician's Friend lists $199 to $209", "Post Flow lists the Wave:3 MK.2 at $133.99 while BGR lists $169.99, and PopSci says it needs a USB 3.0 port", "Reviewed says the Yeti X isn't great for conversations", "Reviewers frame them as fine for calls and basic content, not music. StreamTechReviews says the Tonor TC-777 is all plastic and too light, so it can tip over."] }
   ],
   brandVerdict: "Room and connection matter more than brand. A noisy room favors a dynamic, and a USB-and-XLR mic keeps your options open for the cost of a quick check.",
 

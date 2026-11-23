@@ -686,6 +686,10 @@
   // ---------- render: static sections ----------
   function renderBrand() {
     document.getElementById("brand-verdict").textContent = D.brandVerdict;
+    if (D.brandHeading) {
+      document.getElementById("b-heading").textContent = D.brandHeading;
+      document.querySelectorAll('a[href="#brand"]').forEach((el) => { el.textContent = D.brandHeading; });
+    }
     document.getElementById("brand-table").replaceChildren(
       h("thead", {}, h("tr", {}, h("td", {}), D.brandColumns.map((c) => h("th", { scope: "col" }, c)))),
       h("tbody", {}, D.brandRows.map((r) => h("tr", {}, h("th", { scope: "row" }, r.label), r.cells.map((c) => h("td", {}, c)))))

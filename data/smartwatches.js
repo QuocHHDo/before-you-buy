@@ -135,6 +135,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Brands compared",
   brandColumns: ["Phone makers", "Fitness specialists", "Value brands"],
   brandRows: [
     { label: "Examples", cells: ["Apple, Samsung, Google", "Garmin", "Amazfit"] },

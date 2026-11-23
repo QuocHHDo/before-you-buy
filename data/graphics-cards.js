@@ -125,6 +125,7 @@ window.SITE_DATA = {
     }
   ],
 
+  brandHeading: "Chip makers compared",
   brandColumns: ["Nvidia GeForce", "AMD Radeon", "Intel Arc"],
   brandRows: [
     { label: "Examples", cells: ["RTX 5060, 5070, 5070 Ti", "RX 9060 XT, 9070, 9070 XT", "Arc B580"] },
